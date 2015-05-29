@@ -4,6 +4,7 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,17 +19,22 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.ksoap2.SoapEnvelope;
-import org.ksoap2.serialization.PropertyInfo;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
+import org.xmlpull.v1.XmlPullParserException;
+
+import java.io.IOException;
 
 public class MainActivity extends FragmentActivity {
 
     private GoogleMap mMap;
 //    private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
     private static final String URL = "http://jgowor-001-site1.smarterasp.net/PBAI_WebService.svc?singleWsdl";
+    public static final String NAMESPACE = "http://sample";
+    public static final String SOAP_ACTION_PREFIX = "/";
+    private static final String METHOD = "getName";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,16 +72,13 @@ public class MainActivity extends FragmentActivity {
 
 // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
+
+        AsyncTaskRunner runner = new AsyncTaskRunner();
+        runner.execute();
     }
 
     private void MakeUseOfNewLocation(Location pLocation) {
-        Context _Context = getApplicationContext();
-        CharSequence _Text = "Zmieniono lokalizację";
-        int _Duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(_Context, _Text, _Duration);
-        toast.show();
-
+        displayNotification("Zmieniono lokalizację");
 
         //53.368633, 14.671369
         CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(pLocation.getLatitude(), pLocation.getLongitude()));
@@ -86,6 +89,15 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    public void displayNotification(String text, int duration){
+        Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+        toast.show();
+    }
+
+    // default values, java style T_T
+    public void displayNotification(String text){
+        displayNotification(text, Toast.LENGTH_SHORT);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,5 +121,57 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
 
+        private String resp;
+
+        @Override
+        protected String doInBackground(String... params) {
+            publishProgress("Loading contents..."); // Calls onProgressUpdate()
+            try {
+                // SoapEnvelop.VER11 is SOAP Version 1.1 constant
+                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
+                SoapObject request = new SoapObject(NAMESPACE, METHOD);
+                //bodyOut is the body object to be sent out with this envelope
+                envelope.bodyOut = request;
+                HttpTransportSE transport = new HttpTransportSE(URL);
+                try {
+                    transport.call(NAMESPACE + SOAP_ACTION_PREFIX + METHOD, envelope);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (XmlPullParserException e) {
+                    e.printStackTrace();
+                }
+                //bodyIn is the body object received with this envelope
+                if (envelope.bodyIn != null) {
+                    //getProperty() Returns a specific property at a certain index.
+                    SoapPrimitive resultSOAP = (SoapPrimitive) ((SoapObject) envelope.bodyIn).getProperty(0);
+                    resp = resultSOAP.toString();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+        /**
+         * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+         */
+        @Override
+        protected void onPostExecute(String result) {
+            // execution of result of Long time consuming operation
+            // In this example it is the return value from the web service
+//            textView.setText(result);
+        }
+
+        /**
+         * @see android.os.AsyncTask#onPreExecute()
+         */
+        @Override
+        protected void onPreExecute() {
+            // Things to be done before execution of long running operation. For
+            // example showing ProgessDialog
+        }
+    }
 }
