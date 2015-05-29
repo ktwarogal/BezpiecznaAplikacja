@@ -7,6 +7,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
 import org.ksoap2.SoapEnvelope;
+import org.ksoap2.SoapFault;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
 import org.ksoap2.serialization.SoapSerializationEnvelope;
@@ -32,9 +34,10 @@ public class MainActivity extends FragmentActivity {
     private GoogleMap mMap;
 //    private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
     private static final String URL = "http://jgowor-001-site1.smarterasp.net/PBAI_WebService.svc?singleWsdl";
-    public static final String NAMESPACE = "http://sample";
-    public static final String SOAP_ACTION_PREFIX = "/";
-    private static final String METHOD = "getName";
+//    public static final String NAMESPACE = "http://jgowor-001-site1.smarterasp.net";
+    public static final String NAMESPACE = "http://tempuri.org";
+    public static final String SOAP_ACTION_PREFIX = "/IPBAI_WebService/";
+    private static final String METHOD = "GetSpeedCameras";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,19 +134,25 @@ public class MainActivity extends FragmentActivity {
             try {
                 // SoapEnvelop.VER11 is SOAP Version 1.1 constant
                 SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-                SoapObject request = new SoapObject(NAMESPACE, METHOD);
+
                 //bodyOut is the body object to be sent out with this envelope
-                envelope.bodyOut = request;
+                envelope.bodyOut = new SoapObject(NAMESPACE, METHOD);
                 HttpTransportSE transport = new HttpTransportSE(URL);
                 try {
                     transport.call(NAMESPACE + SOAP_ACTION_PREFIX + METHOD, envelope);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (XmlPullParserException e) {
+                } catch (IOException | XmlPullParserException e) {
+                    resp = e.getMessage();
+                    Log.w("WebService", "FAIL " + resp);
                     e.printStackTrace();
                 }
-                //bodyIn is the body object received with this envelope
-                if (envelope.bodyIn != null) {
+
+                if(envelope.bodyIn instanceof SoapFault){
+                    final SoapFault sf = (SoapFault) envelope.bodyIn;
+                    resp = sf.getMessage();
+                    Log.w("WebService", "FAIL " + resp);
+                }else if (envelope.bodyIn != null) {
+                    //bodyIn is the body object received with this envelope
+
                     //getProperty() Returns a specific property at a certain index.
                     SoapPrimitive resultSOAP = (SoapPrimitive) ((SoapObject) envelope.bodyIn).getProperty(0);
                     resp = resultSOAP.toString();
@@ -152,6 +161,8 @@ public class MainActivity extends FragmentActivity {
                 e.printStackTrace();
                 resp = e.getMessage();
             }
+            publishProgress(resp);
+            Log.w("WebService", resp);
             return resp;
         }
 
@@ -162,7 +173,7 @@ public class MainActivity extends FragmentActivity {
         protected void onPostExecute(String result) {
             // execution of result of Long time consuming operation
             // In this example it is the return value from the web service
-//            textView.setText(result);
+            publishProgress(result);
         }
 
         /**
@@ -172,6 +183,11 @@ public class MainActivity extends FragmentActivity {
         protected void onPreExecute() {
             // Things to be done before execution of long running operation. For
             // example showing ProgessDialog
+        }
+
+        @Override
+        protected void onProgressUpdate(String... text) {
+            displayNotification(text[0]);
         }
     }
 }
