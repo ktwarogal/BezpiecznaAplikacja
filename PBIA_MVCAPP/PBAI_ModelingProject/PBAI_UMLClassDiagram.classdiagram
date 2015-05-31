@@ -1,0 +1,1279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="d3f523c6-5b57-498e-a1d5-96dfa895d15a" name="PBAI_UMLClassDiagram" linkedPackageId="9ab805d3-7d04-47e1-8765-332a8ba7990f" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="9c1eff71-0e47-4eb3-91b1-e7bbe526d451">
+      <profileInstance Id="d49376ce-d6c9-443f-8d35-964feaabb72a" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="33d2a360-9d40-4427-a279-8d540d2dc74a">
+      <profileInstance Id="5b56f844-591b-460d-81e0-e40a0932e721" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="3e7a7c6a-303c-4f2e-942c-255bc071601a">
+      <profileInstance Id="228dbdbf-7947-47d2-8df4-e2eef846d7d0" name="CSharpProfile">
+        <elementDefinition Id="2dcc6fe5-6f50-415a-bf43-0d09758f20c4" />
+      </profileInstance>
+      <elementDefinition Id="b21ad8a4-7ba9-4f08-9147-8075716c6537" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="26a3936f-c83d-4c82-974f-4499332b7923" name="PBAI_WebService" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="8336fbfe-5f7d-43d5-ac97-9b1dc94de19d" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService" tag="ViewCode">
+            <elementDefinition Id="a971d2f9-297f-4156-81f5-a3497ea88558" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="19cbe129-e949-4d57-9444-9f69cf1f4680" name="class" profile="CSharpProfile">
+            <elementDefinition Id="4739683c-f6be-4990-93a1-fb0f6cc90d64" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="c6e30408-2850-4c7d-9444-bb28e90ed042">
+                <propertyInstance Id="3c2faa4b-8262-4fef-b698-826fd0c404e1" name="ClrAttributes">
+                  <elementDefinition Id="31ba59f6-ad14-4c95-a4d8-d6eedb824029" />
+                </propertyInstance>
+                <elementDefinition Id="97c641f8-10da-4c01-b1b5-8b7c36843188" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="11fdafc0-1754-4319-a151-f6d0f180704c">
+                <propertyInstance Id="6ca1f6da-217e-42e8-adb3-bc28ec98edfe" name="IsPartial" value="false">
+                  <elementDefinition Id="6e2fe2a5-adf9-45b7-b2a0-5879d5c76678" />
+                </propertyInstance>
+                <elementDefinition Id="6384eb43-bca2-4cd4-9645-deae4394039c" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="f152ebc8-c335-44d7-b929-bc1b0350ec41">
+                <propertyInstance Id="2f2c502f-a96e-4faf-9e6b-31e4739935e4" name="IsStatic" value="False">
+                  <elementDefinition Id="6cb4ef75-eb80-4f60-b964-1c8b89b50a2e" />
+                </propertyInstance>
+                <elementDefinition Id="11cc10f5-3e25-4322-88f9-9611d64c87d6" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="51793a89-f318-4250-ab67-c51b820131dc">
+                <propertyInstance Id="88273b1d-e65f-4ba8-9005-4da2efb86171" name="IsUnsafe" value="false">
+                  <elementDefinition Id="34bd6d47-aa51-45ca-a402-91223dcbe9c5" />
+                </propertyInstance>
+                <elementDefinition Id="360797ed-bfaa-447a-81f5-74757421b008" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="3c723505-010c-4e0b-a9ab-18b299c3af1e">
+                <propertyInstance Id="e7622014-7a0e-4625-9751-d88cb24005ff" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="16324520-d8dc-4909-8e29-ac4ee4097333" />
+                </propertyInstance>
+                <elementDefinition Id="8462c5fd-8c6c-4972-ad17-47ec72e717b0" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="0ffcb05e-ec67-4df6-ae9f-b6ec45d0ab3c" />
+        <suppliersInternal>
+          <interfaceRealization Id="0f9386f5-88be-4e4c-9a5e-e18853d9a6f6">
+            <interfaceMoniker Id="a055637b-d403-4ae0-a2b2-32f5d06cf347" LastKnownName="IPBAI_WebService" />
+            <elementDefinition Id="356b2624-cd1f-4ca1-8c55-f54752be52c5" />
+          </interfaceRealization>
+        </suppliersInternal>
+        <ownedOperationsInternal>
+          <operation Id="a17602ad-8560-4e95-86a4-1a4fa24297c4" name="LogIn" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="99ccf0c2-2073-4fee-be88-da13d0a47e24" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
+                <elementDefinition Id="880e6594-2cd1-4e1f-b4e5-e0e90783974f" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="cc58a851-64be-4f7e-ae78-a695ffe6902f" name="method" profile="CSharpProfile">
+                <elementDefinition Id="48c6aa79-e297-41a0-a684-946f7194f399" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bc618759-df57-4612-9695-a74554141dc1">
+                    <propertyInstance Id="a4e0e831-924a-46f5-8a31-b9a3f971676a" name="ClrAttributes">
+                      <elementDefinition Id="c00db6ae-adbf-414c-b6b0-280d597382ff" />
+                    </propertyInstance>
+                    <elementDefinition Id="0fb4aeee-98fa-4f26-8574-19171c7993aa" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2a309629-7844-4804-8efa-96adfa3ee2aa">
+                    <propertyInstance Id="9205ec65-fcfc-4258-a4fa-e4952b608d34" name="IsPartial" value="false">
+                      <elementDefinition Id="5d0f6c56-5273-4b33-9d2c-10352ee6d2ba" />
+                    </propertyInstance>
+                    <elementDefinition Id="eef013c9-2cc1-47d3-9e31-f721a66968fb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="334a5e3d-784c-4a17-94c9-1bb59a906090">
+                    <propertyInstance Id="0f51655e-b0a5-4192-8f3b-7b01efa43452" name="IsUnsafe" value="false">
+                      <elementDefinition Id="654aeb9f-06b4-45f1-aacc-79bd6924e83d" />
+                    </propertyInstance>
+                    <elementDefinition Id="837c02c6-471d-44ed-bc9e-ed58523b172e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4a502a4a-d402-4f08-a2db-e53ba5f011b3">
+                    <propertyInstance Id="a3e1e0c9-a2b1-41e2-8f21-8be3c9022653" name="Inheritance" value="none">
+                      <elementDefinition Id="cde54dd7-77da-4675-87ef-826fd52374c2" />
+                    </propertyInstance>
+                    <elementDefinition Id="2041b7c7-748c-4629-9bd7-9a7881109218" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e0c34c44-1d5f-4994-bec6-d88dfd659f2c">
+                    <propertyInstance Id="c01115ff-45fc-43e5-801f-e8650f9434b7" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="03118cc2-599d-4d55-b9fe-0dcaa282ad53" />
+                    </propertyInstance>
+                    <elementDefinition Id="8df2ac41-3843-4b5a-82fc-83d20d64b70c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6e4044c7-fc3c-486f-b109-1c19f3a54c47">
+                    <propertyInstance Id="4c2c7331-1141-42f7-8c2f-9ae75a158339" name="params" value="false">
+                      <elementDefinition Id="0a74fe88-ee7c-44c1-83cc-c83dc83021e5" />
+                    </propertyInstance>
+                    <elementDefinition Id="863df773-c6fe-4e09-a2ff-4448fcb1c9ab" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="506af137-cb2f-4f05-8926-189fb891cafd" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="768aec3b-f9bc-4a78-b527-337039198afc" direction="Return">
+                  <elementDefinition Id="120aa484-8a96-4172-9a28-6ee74d4d0138" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cdc967f8-10f9-4f54-96fd-d369f27b59a8" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="9a37aaee-3fda-43fa-b2c4-60cb69b3a953" name="login" direction="In">
+                  <referencesInternal>
+                    <reference Id="5ff35c39-0fac-4de9-a35d-0eb0f16cbc8d" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dlogin" tag="ViewCode">
+                      <elementDefinition Id="ab9432b1-757c-48c3-a425-edb64f12fbbc" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="3f0fa46b-7648-4078-bbda-6051e0835ac8" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d66ac240-8f4e-4fcb-9269-333b6c29460b" name="pass" direction="In">
+                  <referencesInternal>
+                    <reference Id="3fab0589-5179-4a3a-a898-de3ead9ac62c" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpass" tag="ViewCode">
+                      <elementDefinition Id="dd7acf70-97fb-492e-9eab-5af294c819bc" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="e2dfaa28-5647-4de0-a3e6-84d53c6bc176" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b19e4de0-9e2f-4533-a3d1-cb385000b9e5" name="PBAI_WebService" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="a55280b9-94ba-49dc-aa9a-a697e7dcbaa7" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService Member%3D.ctor" tag="ViewCode">
+                <elementDefinition Id="1c37d0d8-6624-47b2-914c-eff2930430e8" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="4ac43653-510d-475c-b5dc-3700fd2f11e0" name="method" profile="CSharpProfile">
+                <elementDefinition Id="14ead3b7-8a18-43fb-8c7e-878fe23cb08a" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="90e66282-abca-436a-9588-ad061722e475">
+                    <propertyInstance Id="07ff7823-4e49-4e3b-9971-51f87602329a" name="ClrAttributes">
+                      <elementDefinition Id="0f36b7cf-f324-4795-8cd0-47eb04c68ee9" />
+                    </propertyInstance>
+                    <elementDefinition Id="c430c4ec-2112-4e32-8b42-95025ab4fb61" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d7cde5f3-6cbd-4d73-8d76-e399826aed6d">
+                    <propertyInstance Id="6121ef73-3a31-4ebb-9d19-666b88eb75ba" name="IsPartial" value="false">
+                      <elementDefinition Id="4c5080da-8c19-43af-ac51-df0f1c3c192a" />
+                    </propertyInstance>
+                    <elementDefinition Id="c867f320-9295-48b4-b6d5-57e76a2f3b4d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c4284e81-7c54-45ff-9082-20994bc387ee">
+                    <propertyInstance Id="eac064fa-bc07-4543-8464-68d26ba56ae9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="2ce53565-a445-4299-9873-af61354b584e" />
+                    </propertyInstance>
+                    <elementDefinition Id="55b2557a-2910-4421-9cc0-3a4862316170" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c4e6f781-5935-4bc1-996b-3ec28142c4dd">
+                    <propertyInstance Id="65afdb10-6e25-4703-9783-b82701b3a26b" name="Inheritance" value="none">
+                      <elementDefinition Id="31cd2603-1a65-4ff5-b2eb-5de292710ddb" />
+                    </propertyInstance>
+                    <elementDefinition Id="97152401-64ef-417b-9d9e-fe7f058b8be8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0056e771-16d3-4b80-8ebc-50aff776ea1b">
+                    <propertyInstance Id="da99399a-b639-4fe6-8329-0cad4dfc3d68" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="71f3e973-a6db-4263-8ca2-936d4e55f75b" />
+                    </propertyInstance>
+                    <elementDefinition Id="77614040-62b9-42b4-acd3-714940c36341" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="60fec62d-1d0b-4c50-b270-d10bab8bd35b">
+                    <propertyInstance Id="b983acba-ab93-4ab4-b954-02e73ae30219" name="params" value="false">
+                      <elementDefinition Id="58384926-f089-49d9-8e7d-2e303c8d068f" />
+                    </propertyInstance>
+                    <elementDefinition Id="4baa74ff-2b7f-4c85-8768-19d5afa6b7e4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="ece88446-ffb0-4a5b-8cb7-85e4b02404fb" />
+          </operation>
+          <operation Id="08bca134-19a6-4396-9de3-7e8b3c7bfe7b" name="GetSpeedCameras" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="fa12553c-f389-481b-9ebd-71bf4a3f970c" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DPBAI_WebService Member%3DGetSpeedCameras" tag="ViewCode">
+                <elementDefinition Id="1757e020-7c93-4088-809c-d95c302f7ed8" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="9a86786d-d73d-487e-babd-c2b94afefcb6" name="method" profile="CSharpProfile">
+                <elementDefinition Id="eb41a29e-4d76-40d1-89ae-87e35e75fcff" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6c78a8a6-6d03-4ed8-887d-6389efb9186f">
+                    <propertyInstance Id="ff83ff1a-ea1e-446b-91c5-842701a14645" name="ClrAttributes">
+                      <elementDefinition Id="7030be51-4347-4cde-ac41-223195f04ab3" />
+                    </propertyInstance>
+                    <elementDefinition Id="459bbe72-4362-4c18-9b56-21e0491b6f3d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bab2da26-4063-4555-b7f3-4a69f73da819">
+                    <propertyInstance Id="d10aa286-1bb8-4fee-a8f3-633564dac4a6" name="IsPartial" value="false">
+                      <elementDefinition Id="ce907542-2c66-433f-a6c4-4032f93e9d2c" />
+                    </propertyInstance>
+                    <elementDefinition Id="63a8810e-d46f-471d-8d8b-584b352fa890" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="492f0a44-f110-4733-89a9-08bbf0eab21d">
+                    <propertyInstance Id="2ffffbb4-5b1a-412c-bb3d-43f07e6a3e2b" name="IsUnsafe" value="false">
+                      <elementDefinition Id="176774b7-9fd0-4b0c-9146-c45817aaa2bf" />
+                    </propertyInstance>
+                    <elementDefinition Id="be662011-8037-415a-835d-056c65796bd8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fbcfa33d-95e4-43e8-9671-da00ca490e1b">
+                    <propertyInstance Id="cb1a6710-c4fc-4785-9b2e-e8132fb32c4f" name="Inheritance" value="none">
+                      <elementDefinition Id="5d8804aa-fc88-4b8b-957f-3640e60be556" />
+                    </propertyInstance>
+                    <elementDefinition Id="80208adb-2042-4ef4-88b1-cba4b5a1b781" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ad6480f0-b416-4da4-a417-54c19d357dfb">
+                    <propertyInstance Id="f4294862-7217-42db-85b4-faaeef405dee" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="7eca4ea8-d9ae-4cf1-9e20-21a309e1c4bd" />
+                    </propertyInstance>
+                    <elementDefinition Id="33a182d1-3139-4fcd-b84d-f1d5e148fdc5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8c491f76-e216-40bd-9208-60600d077df7">
+                    <propertyInstance Id="341ddb58-abc0-43c6-b3e2-2c0fd21d3512" name="params" value="false">
+                      <elementDefinition Id="0ea774bf-8a16-4968-aa76-79287a2fed09" />
+                    </propertyInstance>
+                    <elementDefinition Id="b992c1ab-eb8f-4799-9a7f-e9348c748012" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="5e727c9f-b6ed-4b56-988d-2c5e6caa84be" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5d1b37fb-fe54-4848-a4fc-0d749bfa69c6" direction="Return">
+                  <elementDefinition Id="04eb96eb-e8f1-4263-981e-db5fcf495594" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="086e6206-ca67-4b1e-867c-f97517c29336" LastKnownName="List&lt;String‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="cefb7098-62d5-4860-8500-b6ab755aafbe" name="String" isAbstract="false" isLeaf="false" cachedFullName="String">
+        <elementDefinition Id="59259974-6d55-42c6-b7bd-763d77ac8ef9" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="cdc967f8-10f9-4f54-96fd-d369f27b59a8" name="Boolean" isAbstract="false" isLeaf="false" cachedFullName="Boolean">
+        <elementDefinition Id="8943dc84-709e-4f62-b15a-a3273aa6f165" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="086e6206-ca67-4b1e-867c-f97517c29336" name="List&lt;String‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::System::Collections::Generic::List&lt;String‎&gt;">
+        <elementDefinition Id="c57f9307-7e3c-4100-abb5-6d4992c6a9de" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <Interface Id="a055637b-d403-4ae0-a2b2-32f5d06cf347" name="IPBAI_WebService" isAbstract="true" isLeaf="false">
+        <referencesInternal>
+          <reference Id="655f2165-ca94-4069-b227-7a3739786475" handle="viewcode://./CodeSchema_Interface?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DIPBAI_WebService" tag="ViewCode">
+            <elementDefinition Id="3d74771d-63bb-4d37-97c0-486a6d0bc746" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="93c61c24-3afc-4b3c-a3f3-f1bba6fbe8df" name="interface" profile="CSharpProfile">
+            <elementDefinition Id="883a08e9-1059-4536-859e-d1715f619e70" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="eab6ef26-86af-4411-9900-05095d7e676c">
+                <propertyInstance Id="d3309ef8-5e51-4b6a-9015-25316accde5a" name="ClrAttributes">
+                  <elementDefinition Id="569d5f04-8882-4290-9ab1-deb5754479bc" />
+                </propertyInstance>
+                <elementDefinition Id="d8a3098c-fddb-4cfb-8f86-9143765c4f2d" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="fd1e5a84-a9c7-43de-8ae3-b4864fabd48a">
+                <propertyInstance Id="35dd640e-23dc-4ef0-8e13-790ee2a8f332" name="IsPartial" value="false">
+                  <elementDefinition Id="84a105ef-c553-4d38-9ce0-469ee277599b" />
+                </propertyInstance>
+                <elementDefinition Id="bf82bc81-1b72-448b-8b39-063cbcd1f8db" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="92ff2675-4727-4657-977c-ad4e21e203b6">
+                <propertyInstance Id="66ddf92f-68f5-4072-b1c4-4b5dea2a0781" name="IsUnsafe" value="false">
+                  <elementDefinition Id="06121a3c-18e8-4ad9-903e-4451fceeba2e" />
+                </propertyInstance>
+                <elementDefinition Id="2e9db9eb-5c9b-4a91-a66d-a761533d59f1" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="18c7a6d2-038e-4455-bed2-2bd9adb989d8">
+                <propertyInstance Id="59721939-3bb8-4636-900c-ee31dfd78dee" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="d7e050f8-5302-4f4b-8abd-689bd6d59818" />
+                </propertyInstance>
+                <elementDefinition Id="1c9c8132-f38b-4dc4-81bb-cbef23bbde09" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="ac731d28-bcf4-4529-ab89-bd0ab145b7a4" />
+        <ownedOperations>
+          <operation Id="e620527e-c5e6-4158-9639-e44d2a2db441" name="GetSpeedCameras" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="0ddc373e-3936-494e-9a57-786c77c38db9" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DIPBAI_WebService Member%3DGetSpeedCameras" tag="ViewCode">
+                <elementDefinition Id="abc5d8ed-61c2-4111-8c1d-0cdd85906a29" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="2e67decd-fd8a-41eb-9dc3-46b494c4867f" name="method" profile="CSharpProfile">
+                <elementDefinition Id="c6ee00c1-9e6d-4c3e-9ab4-2093ba7175a9" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="76d0ac1e-7027-426c-9b9d-815ee51f4310">
+                    <propertyInstance Id="89f86f88-a6f7-42eb-a8f7-d8a889d5c51c" name="ClrAttributes">
+                      <elementDefinition Id="2d5c79b6-8187-404d-82fe-5c45e4defc91" />
+                    </propertyInstance>
+                    <elementDefinition Id="93097fe9-4020-43fe-9433-c846eb212167" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ad2d082a-b55c-4bff-8b01-d9827dab0fbd">
+                    <propertyInstance Id="8197a230-c7a4-49fc-b2d7-07a47180ee7c" name="IsPartial" value="false">
+                      <elementDefinition Id="fb378ded-e975-4c52-bd63-a3e73ad96977" />
+                    </propertyInstance>
+                    <elementDefinition Id="8377e4ba-6d35-47b1-8724-35d10976d129" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="69413352-f14d-43d9-a454-6f78523d92a3">
+                    <propertyInstance Id="29e7a809-79d1-4f46-a6a6-34688490da54" name="IsUnsafe" value="false">
+                      <elementDefinition Id="b4f8e3b5-5dea-4890-b961-7645c304827d" />
+                    </propertyInstance>
+                    <elementDefinition Id="13b1ca09-23c1-4414-a25a-f8e4bd3fc82b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="48988ff2-4dce-486d-b361-e9c439d8deb9">
+                    <propertyInstance Id="16f10156-d805-48d1-a823-d8dc84e84a52" name="Inheritance" value="none">
+                      <elementDefinition Id="5fde2c90-9dff-497f-a16e-8155855c3d6c" />
+                    </propertyInstance>
+                    <elementDefinition Id="e417ff13-4558-4e7a-b8dc-2687b0b509a0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="974df133-33d4-4c91-bc66-5611bba3d26a">
+                    <propertyInstance Id="955d21e1-4f98-434b-be82-ae7ff75c1f54" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="e4cdcdad-e84b-4694-835d-d4682d3568fc" />
+                    </propertyInstance>
+                    <elementDefinition Id="a7ee35ad-9e5e-45f9-ada5-c529d057c408" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9d87e2de-baf4-4938-849d-9eb1935dc9ba">
+                    <propertyInstance Id="2f843a66-cae6-4eaf-a9ba-c96404c5f038" name="params" value="false">
+                      <elementDefinition Id="5d6a8693-85bf-4ff7-acd6-5094c88a7e17" />
+                    </propertyInstance>
+                    <elementDefinition Id="c7fc07e3-9b9c-4c0e-ac39-2635fab58ec7" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="e2165f38-f616-40b5-8def-7a5074846b61" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="3a48d015-d9a6-47cc-8250-871355aaa63f" direction="Return">
+                  <elementDefinition Id="707ec67a-d073-48a4-b384-de4863b0d4ff" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="086e6206-ca67-4b1e-867c-f97517c29336" LastKnownName="List&lt;String‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="cb388ff9-50b4-4507-9a62-84e0e8efdbc0" name="LogIn" isLeaf="false" isStatic="false" isAbstract="true" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="87c587cc-1b17-4348-98ed-b0d0d34915ac" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DIPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
+                <elementDefinition Id="3ad1d206-7b79-49ee-8958-798e9c8dcac7" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="7c37f135-640e-46bf-bccc-8870e87cb417" name="method" profile="CSharpProfile">
+                <elementDefinition Id="c3de39b7-0c1c-4386-ad61-42244fda7fe5" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="93ab6a6b-d565-4c13-8f3f-f21d375b4038">
+                    <propertyInstance Id="4c4e126b-4d5f-42cc-81a3-3e588a27e799" name="ClrAttributes">
+                      <elementDefinition Id="42f18c88-efd7-44d3-a7b8-ea85185fd4f2" />
+                    </propertyInstance>
+                    <elementDefinition Id="4b0cbf64-742a-4da7-a710-bfd3ae67bf12" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="53489de6-cad9-4f3e-840e-6d22e76ec237">
+                    <propertyInstance Id="1418edea-3d01-45d5-9ba2-a21e616963d6" name="IsPartial" value="false">
+                      <elementDefinition Id="e0b396fe-cbd8-4362-be75-7dbaba89dc73" />
+                    </propertyInstance>
+                    <elementDefinition Id="0bd4e2e4-ef03-4088-8aa7-d3f140556811" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0e6e08fd-6e9a-4241-b42b-c5ea939ef1a2">
+                    <propertyInstance Id="8b0fce0d-07e5-43ed-89be-62434d1221ca" name="IsUnsafe" value="false">
+                      <elementDefinition Id="faceb12b-0c68-4afd-84e5-1554bbc09682" />
+                    </propertyInstance>
+                    <elementDefinition Id="4b56abab-18f7-4954-baf4-3ccf0731a5fb" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="99bbebf9-35f5-4b6e-820e-55b511a79810">
+                    <propertyInstance Id="0c374790-cd22-4104-b50c-1afd72d2f369" name="Inheritance" value="none">
+                      <elementDefinition Id="a92c5ff1-4d54-4891-9a9c-c0dca86543cd" />
+                    </propertyInstance>
+                    <elementDefinition Id="0f2b78e5-1c46-4d34-ae94-c10b54d77b9a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5bd95514-454f-44c7-b794-1111c5027665">
+                    <propertyInstance Id="f9f7f3af-5025-4c2c-9d36-b24b91410786" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="5e2cb993-27b5-4402-beb3-3161d6d7d4b8" />
+                    </propertyInstance>
+                    <elementDefinition Id="e0372b4c-78e1-4867-9a63-64100b3a8061" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="63111ae3-a698-46ea-8dbd-fe4ae714d501">
+                    <propertyInstance Id="f53ec255-1ce8-4a06-9b9c-38719dad997a" name="params" value="false">
+                      <elementDefinition Id="455113e2-e432-44be-8b05-de7a11131ca3" />
+                    </propertyInstance>
+                    <elementDefinition Id="a9f19ef9-3eca-47b9-91c2-b8dea3e83ca6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="25bcdff5-21b2-4f3a-b863-84cc1d81220d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="5131c3d1-4044-4b84-bb43-9af0b65e7228" direction="Return">
+                  <elementDefinition Id="e09b7dd0-3bb4-4ce0-bb51-fcea1024777c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cdc967f8-10f9-4f54-96fd-d369f27b59a8" LastKnownName="Boolean" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="86810ee2-08d7-40c8-b35f-158eae19a3da" name="login" direction="In">
+                  <referencesInternal>
+                    <reference Id="690c6b29-b5f6-495e-904e-3705c5166ae7" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DIPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dlogin" tag="ViewCode">
+                      <elementDefinition Id="7ed735da-8e79-4480-9d2e-e22ffbe32cc4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="6cbd3f24-b91e-4b02-9213-174b3361eace" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e3e73e58-c44e-4779-8787-5a804b303711" name="password" direction="In">
+                  <referencesInternal>
+                    <reference Id="09b4ac7f-a8dc-4554-8c21-0e7fb806e01d" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DIPBAI_WebService Member%3D(Name%3DLogIn OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dpassword" tag="ViewCode">
+                      <elementDefinition Id="6e2b31c6-0eca-4cee-9ba6-846314d9cf89" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="3b2bd764-d430-4e80-8531-0844621c64f6" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperations>
+      </Interface>
+    </logicalClassDesignerModelHasTypes>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="757ea3c4-49a9-4f22-afef-c11a01ca0f65" name="AccountController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="48aeec14-b8d3-4dcd-a7fb-30a9ab69c819" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController" tag="ViewCode">
+            <elementDefinition Id="c15d66c7-ff89-4806-be9c-706694fff9b3" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="a8a9dad4-581d-4fdd-ae20-a1eec42c6847" name="class" profile="CSharpProfile">
+            <elementDefinition Id="5e28047f-3749-469d-b7ee-1225310b22aa" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="a5060448-8e0a-48ff-adf6-1d95ada95c21">
+                <propertyInstance Id="a1f72fb0-8ef1-4b1a-8a8f-28939f053206" name="ClrAttributes">
+                  <elementDefinition Id="0454e431-b9b1-4963-b8ad-8726d9cb8743" />
+                </propertyInstance>
+                <elementDefinition Id="885f14b0-b2a6-453f-b19d-ce533a29cb69" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="95cb52c8-37a0-4aaa-ae6f-8b3e505fbc73">
+                <propertyInstance Id="6309a7f0-0ea8-4fb5-81a5-e67d1965c322" name="IsPartial" value="false">
+                  <elementDefinition Id="20e78d8f-1211-4822-a23f-4ba08275fd50" />
+                </propertyInstance>
+                <elementDefinition Id="1a7cb651-0368-4f5f-b273-6de4084a5c11" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="5fb8d7f5-724e-4f82-8bf8-270ee15e9f0a">
+                <propertyInstance Id="f3c79882-cc2c-4866-866e-5ae2d8063f99" name="IsStatic" value="False">
+                  <elementDefinition Id="6f77d5ba-254f-4095-afc4-7b40c1e7d08f" />
+                </propertyInstance>
+                <elementDefinition Id="042ac273-c2ee-48f7-8e68-c721df6d577e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="d7c04fb2-c250-440d-bb6a-970904847b44">
+                <propertyInstance Id="c6e74772-da7e-4364-9a6b-ebe627025480" name="IsUnsafe" value="false">
+                  <elementDefinition Id="950eddd5-8b9d-4c6f-9259-4bc20e96e67a" />
+                </propertyInstance>
+                <elementDefinition Id="c716b252-3708-4225-ae4f-8e8e8a3c818e" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="ebca1480-550e-4bc9-aa62-8268db71d936">
+                <propertyInstance Id="50c08f4f-b6b6-4402-8545-24fc24d67600" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="2b6511bb-53da-460d-a495-8566d4c0e2bf" />
+                </propertyInstance>
+                <elementDefinition Id="974bd305-559a-48b8-a629-2bda98c45b19" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="bd7b67ca-26fc-45ea-8286-ab9215c5901f" />
+        <ownedOperationsInternal>
+          <operation Id="6b5e1217-be88-4906-a577-97abc13b2ad0" name="Login" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="63e8567b-a2d5-4c2b-be32-b26170d89d7c" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
+                <elementDefinition Id="7105042d-aed5-4fe6-8b11-9c5852de2948" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="401c7ca1-b06c-4d1f-98ad-6254df28abc6" name="method" profile="CSharpProfile">
+                <elementDefinition Id="b8151c78-7ca8-45c8-b12c-7dd70948646e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="8924bda1-cdb0-484a-9fad-377a2461bac2">
+                    <propertyInstance Id="61e87e6e-fb1b-401c-98b8-3eb7324fbc90" name="ClrAttributes">
+                      <elementDefinition Id="344a994d-00da-4df4-9830-40795dfdc856" />
+                    </propertyInstance>
+                    <elementDefinition Id="b15e4747-8abd-4658-a42b-076c863f916e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fa37c054-69d7-404b-a032-9cf4296ff3ad">
+                    <propertyInstance Id="02a51714-287b-4632-a8a8-216a11760293" name="IsPartial" value="false">
+                      <elementDefinition Id="eb9756ac-5f71-400d-a371-1193d62afca8" />
+                    </propertyInstance>
+                    <elementDefinition Id="2cb08951-03a0-4903-9b06-7f8919b85742" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="2b45690f-3e0f-4713-a64c-d816e120d1e8">
+                    <propertyInstance Id="88dd6030-4814-4f0f-99c0-574616aef495" name="IsUnsafe" value="false">
+                      <elementDefinition Id="84228d07-6e67-4e37-8777-b0baee908df0" />
+                    </propertyInstance>
+                    <elementDefinition Id="af4fdfc0-8fc9-476b-863d-b1f4056b3f2c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7aa368da-6504-401b-be53-a002b83fe5b3">
+                    <propertyInstance Id="56bd3dd1-ff6c-4d52-a2b2-e031c5e80cc6" name="Inheritance" value="none">
+                      <elementDefinition Id="493d8bc2-def1-4cff-b15d-2417d47ec8ae" />
+                    </propertyInstance>
+                    <elementDefinition Id="2c9fd7f0-3919-4714-8a7d-157dcfda9946" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5a5aaa76-4a2f-43bd-8c2a-673a78d13279">
+                    <propertyInstance Id="9bf5e74f-a2b6-47a3-830e-a48cdfb2aefe" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="090ba426-7bc4-4685-89c9-3021d955f9b7" />
+                    </propertyInstance>
+                    <elementDefinition Id="08367c7f-ff4a-472e-bf88-8969a1390418" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c951268f-26b0-4eaf-97c8-83801eaa18e1">
+                    <propertyInstance Id="b3fc02ce-87d8-4e4d-9c25-4aacecdfd0fd" name="params" value="false">
+                      <elementDefinition Id="994b3ae6-23c2-4909-95c9-54aecaff8cfc" />
+                    </propertyInstance>
+                    <elementDefinition Id="b62c2733-0ff5-49b9-bd9b-7ac9864a402b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="4272ad51-117d-454c-b65a-3754fce43a1d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="70a52042-2112-40b9-a340-045487f07312" direction="Return">
+                  <elementDefinition Id="1ae21998-caa9-4aab-b68b-29875092b633" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="dbb9dd2f-2862-419a-823e-9926b630ce06" name="returnUrl" direction="In">
+                  <referencesInternal>
+                    <reference Id="bf2e54e9-a77d-483a-9f2e-f63098e8e027" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DreturnUrl" tag="ViewCode">
+                      <elementDefinition Id="c7fee20d-7a00-4532-b472-06343ad18fb8" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="d0aa9f50-6a4c-4406-be02-dbdd79470de5" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="b6fe3219-2c0a-49fc-af91-ff8bee338729" name="Login" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="8be6cc18-4c30-4dae-b03e-1b4eb858ee85" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)])" tag="ViewCode">
+                <elementDefinition Id="5fa827d2-2f4c-4285-9560-03e817394ccf" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="4dd278b0-c57f-4754-bc97-032b97522d4c" name="method" profile="CSharpProfile">
+                <elementDefinition Id="829d0bb7-30f2-4add-8bfd-808e851b89fd" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a728a550-387a-48eb-aa4a-ff26a83956d4">
+                    <propertyInstance Id="cb99dd0d-77f4-43b9-97c0-87c87146c24b" name="ClrAttributes">
+                      <elementDefinition Id="3f8ffb92-8392-4545-a321-94f095292e0d" />
+                    </propertyInstance>
+                    <elementDefinition Id="e6ad4e03-6723-497e-893f-a8c79194f722" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="14a1a3b9-30a4-433d-87e1-468712ee27cc">
+                    <propertyInstance Id="02c4dac0-7a9d-40fe-94ef-0696b7df5dd3" name="IsPartial" value="false">
+                      <elementDefinition Id="74f8ffad-1dad-48e6-b56a-9a5d705ce651" />
+                    </propertyInstance>
+                    <elementDefinition Id="32d94aa1-eac6-4705-92bb-4e82d461c1a2" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0021d663-3bd3-472a-9b41-a2bdf0e4f3b0">
+                    <propertyInstance Id="ab091f6d-8ce7-47cb-aaee-7a6c2ad8b94f" name="IsUnsafe" value="false">
+                      <elementDefinition Id="b7e3bc53-272b-47a2-b459-8ba18e9a897f" />
+                    </propertyInstance>
+                    <elementDefinition Id="b1328a97-3569-48c6-bfaf-a4240403d1a8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="3b07c874-110d-427d-a89f-fc7b993d9d09">
+                    <propertyInstance Id="87f68b46-7a74-44d3-9398-2cdd4d4fd9c1" name="Inheritance" value="none">
+                      <elementDefinition Id="343a1e1a-d13b-49fb-9dde-2309427b74ae" />
+                    </propertyInstance>
+                    <elementDefinition Id="d3b05775-1914-415a-bb13-688d360da0cc" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="b4774f60-b27d-4790-9ee8-d14d0773703a">
+                    <propertyInstance Id="d8f2b0d4-1254-480b-9dbd-160f3760a47c" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9be97efd-91e0-4d56-bc5a-cd098db03a57" />
+                    </propertyInstance>
+                    <elementDefinition Id="94a56bb1-0087-4d42-ae6c-acd87a614eaa" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bf797b26-b42d-4a03-bb3c-e30c526f4bf0">
+                    <propertyInstance Id="d9dcd142-4a6a-4eb4-8e34-dc36a00a6051" name="params" value="false">
+                      <elementDefinition Id="d48a1193-fba6-48d0-86ac-a3360030eae5" />
+                    </propertyInstance>
+                    <elementDefinition Id="7972086c-73c0-4802-bd78-dce31460c712" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="e5fc2c30-8598-40c8-a0df-ce446b60741d" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="98928561-5523-4296-915e-9a03b25efb77" direction="Return">
+                  <elementDefinition Id="97121ef1-ecab-4c63-9671-d7eb6b021d2c" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="d7a73ba6-058e-4ad5-9cdc-725f943f40df" name="model" direction="In">
+                  <referencesInternal>
+                    <reference Id="29d19ed5-46c3-44bf-a694-67f83461a7dd" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3Dmodel" tag="ViewCode">
+                      <elementDefinition Id="a58be54d-b20d-40cd-8e37-2a99b0a3e302" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="0728e8ee-bfc6-4512-886b-9433c661d4ad" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="ff24664b-a916-432a-bc0a-dc865f4a8b2e" LastKnownName="LoginModelMVC" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="83f3dc2d-b01c-4dca-9c93-ff03957e3f7c" name="returnUrl" direction="In">
+                  <referencesInternal>
+                    <reference Id="b28f30be-58da-47a4-ae4f-f9bf82af055a" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DLogin OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC)%2C(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3DString)]) ParameterIdentifier%3DreturnUrl" tag="ViewCode">
+                      <elementDefinition Id="d95665cf-720b-4e42-b49f-4cb193e4d704" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="fc67ce45-767b-4e60-9e1c-48a039b8011f" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="cefb7098-62d5-4860-8500-b6ab755aafbe" LastKnownName="String" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="9fc7f678-4245-493d-bdd9-516907c877de" name="Manage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="0b517aab-7f31-4c8c-bb31-c9efc0ad7941" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DManage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLocalPasswordModelMVC)])" tag="ViewCode">
+                <elementDefinition Id="4f3a4444-3028-43de-b1b8-3c7e884df50d" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="78b4c6d6-c0f4-4e7b-af7f-02cbcc3ebc43" name="method" profile="CSharpProfile">
+                <elementDefinition Id="4e185895-fd48-4040-8344-6ff5a615a55f" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c1b366b2-dada-4358-bcc9-c1fb6af8cf60">
+                    <propertyInstance Id="86c99d63-4307-4f1d-83a6-c4dc66ed8be1" name="ClrAttributes">
+                      <elementDefinition Id="5820bbf2-3b5f-4f9d-bd46-a5b81b62912b" />
+                    </propertyInstance>
+                    <elementDefinition Id="cf2f4c39-edc0-4b95-83d9-8dcc77f83f6d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="c8aca0bb-f623-4a80-9f0c-a0e6180a3801">
+                    <propertyInstance Id="46f19abc-2e35-4e64-aaf9-c7695e9a663b" name="IsPartial" value="false">
+                      <elementDefinition Id="e1c6bb0e-b22f-4b15-ad24-ce585d60f3b7" />
+                    </propertyInstance>
+                    <elementDefinition Id="0417e217-5c8e-4aec-9d03-dad62c03b145" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="63d7567f-ffde-4988-aee7-45cc9d0f5293">
+                    <propertyInstance Id="43a12f89-6c19-4b01-9b7f-e3b933899340" name="IsUnsafe" value="false">
+                      <elementDefinition Id="69a5ac9c-0d1d-4f2c-b21c-c67369bdd567" />
+                    </propertyInstance>
+                    <elementDefinition Id="15866a66-4abd-44bd-9535-6870c08ff6ae" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="46cc5047-1679-4db0-8faf-342cfe797719">
+                    <propertyInstance Id="04cc56ab-f076-4519-a770-cd2d6e50aa5e" name="Inheritance" value="none">
+                      <elementDefinition Id="2a67c16a-c01e-4e23-afcc-5bd4c00184f5" />
+                    </propertyInstance>
+                    <elementDefinition Id="88f24474-66c2-49e3-930c-5654970c98b0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6114cf5d-2a48-4bab-a10b-92226276c8ad">
+                    <propertyInstance Id="2fab81bf-95cc-4297-993c-73198f3cc03b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="d04158ed-13b0-41d9-a99f-c7e28f9c8e5e" />
+                    </propertyInstance>
+                    <elementDefinition Id="a71eccda-4ecf-4135-b7ad-1eeb2dff62ef" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ca0d8020-6f14-4cde-80e2-a79e20680dea">
+                    <propertyInstance Id="ec3bf109-71d8-437b-afc8-a579ca96ddc8" name="params" value="false">
+                      <elementDefinition Id="1c324521-9695-4dda-8fa0-637d6d2fe86d" />
+                    </propertyInstance>
+                    <elementDefinition Id="eb66aa86-1683-434e-9a63-5e9e27165a80" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="67c826c5-2929-4152-a419-bedc5fe380b4" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="e199677c-3815-44a7-a6a8-10e229af5437" direction="Return">
+                  <elementDefinition Id="9c1eb1b7-297a-4ed4-9187-93c3008664c4" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="090d0115-e402-4554-9f55-3c1a908410e0" name="model" direction="In">
+                  <referencesInternal>
+                    <reference Id="43799db9-7309-476a-a77f-f5316ebbb885" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DManage OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLocalPasswordModelMVC)]) ParameterIdentifier%3Dmodel" tag="ViewCode">
+                      <elementDefinition Id="5ca22b87-8c9b-4692-b16f-bb83bc72ae5f" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="1346a928-7d48-4474-8467-027908958815" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="1a2e98f1-b97e-4821-b87e-5f08f703cb9d" LastKnownName="LocalPasswordModelMVC" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="42b2cb91-9ff5-4a4a-9b9f-583f420d4be2" name="Manage" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="d20cfe2c-520b-415d-8ad0-2d20196d53f6" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DManage OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3D(Name%3DManageMessageId ParentType%3DAccountController))]))])" tag="ViewCode">
+                <elementDefinition Id="fad737c7-979c-4966-87d7-e223134df635" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="18d9206e-b114-4432-9306-ee5814d018bc" name="method" profile="CSharpProfile">
+                <elementDefinition Id="24bb5eff-4855-422c-a272-d2092d494d72" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="04320464-ecbe-4798-9238-a408676c9c55">
+                    <propertyInstance Id="3810be3f-946b-44c8-9ed2-2509eb060241" name="ClrAttributes">
+                      <elementDefinition Id="d5e17146-0971-4480-82c6-943ec716828f" />
+                    </propertyInstance>
+                    <elementDefinition Id="f15f2f43-a885-4884-bcac-4b73c94c03a6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d29532b3-9524-4c95-b6a4-d8763c534d42">
+                    <propertyInstance Id="43fe3efe-9b6c-4efd-920e-b06fe0908df8" name="IsPartial" value="false">
+                      <elementDefinition Id="34484b4e-ef34-4680-9189-efed161d9c17" />
+                    </propertyInstance>
+                    <elementDefinition Id="e88fbaba-6048-440e-b3e1-388c5f82be69" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="6a160275-cde1-42ba-a8c1-8671f2866dc4">
+                    <propertyInstance Id="842dc588-9001-4ed3-8791-43f68387c0af" name="IsUnsafe" value="false">
+                      <elementDefinition Id="780e7725-cdc0-49ac-87b3-11023bbf4aba" />
+                    </propertyInstance>
+                    <elementDefinition Id="f5adf0d2-e245-46bb-bcc4-6d81b5d47cad" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="159f5ddb-dd56-4e24-85a6-4f8d8eef37b9">
+                    <propertyInstance Id="ddd5e87d-565b-4733-b5c1-22bf809dc93b" name="Inheritance" value="none">
+                      <elementDefinition Id="48885b93-4062-4843-8293-a914fa405d28" />
+                    </propertyInstance>
+                    <elementDefinition Id="c85b4db8-2a86-4145-8a97-21707a07b6b5" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="a83a8134-6110-46c5-912b-be7cd8c53113">
+                    <propertyInstance Id="93010900-8435-4bc3-bdfe-629f8358905c" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="2fcee6ec-14bd-4fc0-b0d5-d957f9e542ab" />
+                    </propertyInstance>
+                    <elementDefinition Id="3d3a8256-b1df-4176-9d81-ccf1c6c9ee80" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="50f3ef83-5edc-49e7-a962-3ab0b5ff2329">
+                    <propertyInstance Id="e618138c-151c-47c3-958e-63e93bb24ffc" name="params" value="false">
+                      <elementDefinition Id="363ffc85-57b4-4ecb-82f5-2ef6371d7027" />
+                    </propertyInstance>
+                    <elementDefinition Id="7c7fcd85-0c55-4605-9f5d-a450a39a529b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="2d68221d-9246-4f90-918f-b6e1d3b89bc6" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="297237be-b030-444e-8db3-a4bbb9dd4060" direction="Return">
+                  <elementDefinition Id="536ce374-df7f-4971-83c1-7152f3a1b4cd" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="bd8a7cf1-fb4a-46dc-a85a-b95ed6cf60e7" name="message" direction="In">
+                  <referencesInternal>
+                    <reference Id="6e8f13b9-8932-4a0f-b3e8-0d032338991e" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DManage OverloadingParameters%3D[(Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2Fmscorlib.dll&quot; Namespace%3DSystem Type%3D(Name%3DNullable GenericParameterCount%3D1 GenericArguments%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3D(Name%3DManageMessageId ParentType%3DAccountController))]))]) ParameterIdentifier%3Dmessage" tag="ViewCode">
+                      <elementDefinition Id="c676397b-c014-4e85-96c1-255821a26dea" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="f65c60bb-2da1-459d-83cc-b300e75fbd72" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="78522210-52fd-494d-9bf6-90cdc4b5118f" LastKnownName="Nullable&lt;AccountController‎‎.ManageMessageId‎&gt;" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6170fa51-4bec-4b2c-8363-4e528d88463a" name="Register" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="cd1ab48c-85de-4837-b4bd-3cdc56c6b4cb" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DRegister OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterModelMVC)])" tag="ViewCode">
+                <elementDefinition Id="a85bc89b-8cf4-4f08-a2fa-952f018542cb" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="6c4ec065-9b35-4de7-88dd-4f9a3b2b2e22" name="method" profile="CSharpProfile">
+                <elementDefinition Id="0b51c788-e4b8-441d-9a91-0135b21e46fc" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e7411ce3-67e0-4b96-85dc-bf91c1c6997b">
+                    <propertyInstance Id="5c46c668-4c39-4112-8a19-44b3a81e33a8" name="ClrAttributes">
+                      <elementDefinition Id="dca597dc-fee7-4dcd-9275-51aa77922bcc" />
+                    </propertyInstance>
+                    <elementDefinition Id="421efe77-97a9-4160-aa64-1074bed7d6d3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="618c968f-e8dc-42c0-bdd4-93152e32f10e">
+                    <propertyInstance Id="97ba4d4f-ee6f-4d39-85e8-ffc35550b96b" name="IsPartial" value="false">
+                      <elementDefinition Id="6190b62f-a8ec-40b6-add4-f8aa9ed4d97a" />
+                    </propertyInstance>
+                    <elementDefinition Id="c43d6364-c782-4805-9556-1e0e6bcbe8d4" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="46137f66-85e4-47d2-a989-a72a6a0bcac8">
+                    <propertyInstance Id="d65c263e-a966-4c41-9da0-2dad292b0257" name="IsUnsafe" value="false">
+                      <elementDefinition Id="8b8d8fc5-7573-4e88-80da-9d014160d702" />
+                    </propertyInstance>
+                    <elementDefinition Id="4db85b76-3fc5-46f3-9ded-3245853f4ac9" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ebc6ce4b-8417-4935-b996-ca71b021124f">
+                    <propertyInstance Id="41ab023d-e87d-4899-8702-1e5e9bd7274a" name="Inheritance" value="none">
+                      <elementDefinition Id="e4a1843f-4e23-4397-8081-ad90cae838ef" />
+                    </propertyInstance>
+                    <elementDefinition Id="7612b063-371e-4b85-9564-242b1d0f18c3" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="21c8f4d7-e996-4d68-960b-11016134ad9b">
+                    <propertyInstance Id="45e03e7c-dc99-45b8-b3ca-a53aca57cd3a" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="30e58765-22ec-4944-beb9-88cc23ee8e5a" />
+                    </propertyInstance>
+                    <elementDefinition Id="bf9f9a45-4e1c-49be-b855-0f28bf1f2426" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="4ca23fb4-a491-473d-8783-ee2d1fd612c5">
+                    <propertyInstance Id="1e63ed33-b20c-483d-9861-3d2904ff8c41" name="params" value="false">
+                      <elementDefinition Id="a0c6f009-7bac-40e6-8c2a-1baaa2fb3b78" />
+                    </propertyInstance>
+                    <elementDefinition Id="04159b26-c0a6-42fe-8cff-87147340d06b" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="9d80b3bc-ff9d-4be7-97d6-820cbc13b18c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="430107db-84cd-43ba-9333-aaf5dbf88054" direction="Return">
+                  <elementDefinition Id="24e45045-aa00-4088-b79e-b692699566ee" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="49b20fe6-b6d5-4fa3-bb94-fb244e1bd1ac" name="model" direction="In">
+                  <referencesInternal>
+                    <reference Id="46ccfe42-c3bf-48db-9b15-bd17b7f17357" handle="viewcode://./CodeSchema_Parameter?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D(Name%3DRegister OverloadingParameters%3D[(Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterModelMVC)]) ParameterIdentifier%3Dmodel" tag="ViewCode">
+                      <elementDefinition Id="3fc74ca4-aeae-4c6f-9a04-05d602a875e4" />
+                    </reference>
+                  </referencesInternal>
+                  <elementDefinition Id="fc6e9749-15bc-4071-acab-989ce87805ef" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="328ebe0a-5913-49e5-bb27-c5c6f0d64e86" LastKnownName="RegisterModelMVC" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="6044831e-2331-408e-ae19-2b2ccf5a9b19" name="AccountController" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="49a50942-8fee-43f4-9854-77500dc79881" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3D.ctor" tag="ViewCode">
+                <elementDefinition Id="639d39c9-79ff-40fb-8b2a-ba48fb1adf18" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="3e11fbd2-a1cf-4427-b3a5-11f23f73b93c" name="method" profile="CSharpProfile">
+                <elementDefinition Id="a9333ab0-68e5-482d-a853-b7c4c5f1fe5e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="728b9889-fb4c-4545-bb5d-f39ce0674d79">
+                    <propertyInstance Id="1c0371e5-16a2-41e1-b577-225871c044f6" name="ClrAttributes">
+                      <elementDefinition Id="2a1edc1d-3326-49ff-a7a5-e705b7bb4267" />
+                    </propertyInstance>
+                    <elementDefinition Id="b8803f79-d47f-42e2-8aaf-1337b40d8ecd" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="04463b9e-48a8-40e6-bfc5-58c1d781ba09">
+                    <propertyInstance Id="9955c95b-7c58-4c85-96b6-e17cd1b1f686" name="IsPartial" value="false">
+                      <elementDefinition Id="b2044ad1-7554-492b-8846-5949cb5010da" />
+                    </propertyInstance>
+                    <elementDefinition Id="1342efe9-4da6-40ad-a34a-2206a92d7a15" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9e6fa0e9-1d11-464c-a974-9f8a27043620">
+                    <propertyInstance Id="57a29967-a848-4c96-a4ce-3c80391e6ac9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="30e81051-b387-412c-9e83-627451b22ea3" />
+                    </propertyInstance>
+                    <elementDefinition Id="2fa8709a-04b1-4088-b1e3-5e4ce6368d8d" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="45870b2e-f1e3-464a-ab51-94bf97580abb">
+                    <propertyInstance Id="5810f5b1-b8f3-4419-941a-643040128ad3" name="Inheritance" value="none">
+                      <elementDefinition Id="f0a6cfe2-e832-4147-bd73-5ae49b60df20" />
+                    </propertyInstance>
+                    <elementDefinition Id="78015f15-cac6-4d73-82b4-98fadc3d2552" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="998d26d6-b1ca-4aaf-9ee8-b898bd55ab12">
+                    <propertyInstance Id="d0b89f7a-fcc4-4b4c-b24c-98e375f054e1" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="25e6f5af-6f3f-4562-9ec4-89432faa92ad" />
+                    </propertyInstance>
+                    <elementDefinition Id="1690be1c-0542-4cc4-bc75-a49a82c57145" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="bccf99fe-a706-458d-830a-8efdb9e36d9e">
+                    <propertyInstance Id="ee9f46d2-89a0-4f5f-9377-07365bd472d7" name="params" value="false">
+                      <elementDefinition Id="53054cee-22ee-4785-aa55-f51003736d6b" />
+                    </propertyInstance>
+                    <elementDefinition Id="ee451d11-6d38-4f47-97ac-7c8bc69921f0" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="bd2da0d8-9684-401a-a545-78cc020a6e3d" />
+          </operation>
+          <operation Id="c82e58af-9175-4e89-8bcd-f04e1286ea57" name="LogOff" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="96d13e17-6f0b-4fa3-811f-ce999d57b265" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3DLogOff" tag="ViewCode">
+                <elementDefinition Id="8a79d60b-b9b3-4945-93d9-16c6ab161d77" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="15c02370-6ba0-4410-b5a3-c2e3ead4a712" name="method" profile="CSharpProfile">
+                <elementDefinition Id="1a9824e6-c8c9-47a4-9545-028417c32e73" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f5651b58-988e-462c-a2d2-da6a24487a47">
+                    <propertyInstance Id="eb6cb86e-531b-4dbb-9443-ea22b7b1c4e8" name="ClrAttributes">
+                      <elementDefinition Id="2129097a-160d-4896-b9e6-643b8c2190d3" />
+                    </propertyInstance>
+                    <elementDefinition Id="cee4e4da-b4d3-4a28-95e7-489fa974e594" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="e26c0456-1cc7-49dd-89ca-5fa4be69f839">
+                    <propertyInstance Id="dca93050-fea3-47d9-90a7-08ffef8bc687" name="IsPartial" value="false">
+                      <elementDefinition Id="7e30231d-d117-4bb1-aafb-1b408e0b04a0" />
+                    </propertyInstance>
+                    <elementDefinition Id="60a8acc6-2a3b-4705-b83a-fdb95cc095ff" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="beff1025-5c99-46b8-a026-e6818efaa23f">
+                    <propertyInstance Id="02ebe073-e9d4-422c-9315-65ff5f53a923" name="IsUnsafe" value="false">
+                      <elementDefinition Id="8c29c039-e46e-42ae-a9cb-797bc97f9c0a" />
+                    </propertyInstance>
+                    <elementDefinition Id="c0a3f250-465e-4045-8f8e-b039b50528a1" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ccc3d7c2-427f-4e88-a811-fe07d2698421">
+                    <propertyInstance Id="14666c68-b37d-4518-bb12-d1daa095af88" name="Inheritance" value="none">
+                      <elementDefinition Id="7da359b1-4785-460b-a9ee-080f878b7929" />
+                    </propertyInstance>
+                    <elementDefinition Id="d6c0e637-afb0-4c88-a6c6-9aa50feb2744" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="9406275f-9ac7-4c0e-87f4-19ef09de921c">
+                    <propertyInstance Id="ef3a9862-b93c-4e34-8b05-bb72f42a99cb" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="41202090-3b3c-4858-ba00-3020e5728064" />
+                    </propertyInstance>
+                    <elementDefinition Id="57deb987-4994-4a52-ba5d-285356ec0c05" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="d0536e38-787b-47bb-ac7f-c5fd9f90e7bc">
+                    <propertyInstance Id="e6ed9af2-a124-4da8-9eb5-3b5b0e4edcd3" name="params" value="false">
+                      <elementDefinition Id="4b0db2ac-12ad-48d2-b552-c8f4bee44150" />
+                    </propertyInstance>
+                    <elementDefinition Id="9412d1f4-c57b-4f24-83c4-3461a36c7d15" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="ccb1327b-8c3f-409e-9a43-762d7318e339" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="10bce54c-fac5-4ea0-9a49-6e301bef9d6a" direction="Return">
+                  <elementDefinition Id="d00f2e9e-503b-416b-a925-b375c54b1b72" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="eefa85c2-1d81-4879-aba4-29ae8df7c08d" name="Register" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="d7a70d44-b7b6-4e00-b9dd-1ca57ce12a46" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DAccountController Member%3DRegister" tag="ViewCode">
+                <elementDefinition Id="6ba20f65-3f29-49f3-a50b-81024f16a64a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="e13de466-3260-403f-9e6c-ff66169cb26b" name="method" profile="CSharpProfile">
+                <elementDefinition Id="033d41ca-491e-4313-9f43-a21c37a28418" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1e584726-8924-4878-927e-0f85c1c86c1e">
+                    <propertyInstance Id="7ed0dffb-b354-4a89-8752-97a63e738b0f" name="ClrAttributes">
+                      <elementDefinition Id="aeeedc32-6eed-49bd-b99e-cd7e3f80e663" />
+                    </propertyInstance>
+                    <elementDefinition Id="9c75fa45-b7a9-4f13-9284-cef4b9db208a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="da17ce7d-b3aa-43a0-bfe6-145728335b5d">
+                    <propertyInstance Id="3adcac20-146c-4402-875c-204d687d566f" name="IsPartial" value="false">
+                      <elementDefinition Id="9e20651f-16d9-474f-9887-026c3c6d5740" />
+                    </propertyInstance>
+                    <elementDefinition Id="fe222468-e5e5-4e50-821a-950d71f23586" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="861c1dd7-d352-484d-9e3b-8d808783213e">
+                    <propertyInstance Id="44dc2727-2bec-4f5e-a7ba-cd086f3fdbe3" name="IsUnsafe" value="false">
+                      <elementDefinition Id="a9ebd5a7-bf57-4e0d-9ec3-a3c2161f92c3" />
+                    </propertyInstance>
+                    <elementDefinition Id="26b08d41-9adf-4c07-b1f6-449af6ce35e6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="60400c7d-2837-4eb7-a455-a2cfe34a7bd4">
+                    <propertyInstance Id="17e2d318-1ca2-415c-af57-1ad308a1fa7b" name="Inheritance" value="none">
+                      <elementDefinition Id="122e1343-b964-40e2-b85c-0d2ae9967a10" />
+                    </propertyInstance>
+                    <elementDefinition Id="506078d7-f137-44e7-a863-c1c57ac4ac5a" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="5f613687-21f7-48fe-be31-2a0a7ff14117">
+                    <propertyInstance Id="923cecce-b9d4-45dd-b696-0680c6ed0c21" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="d29b28d1-510c-4857-ae8e-3d80c0ef1741" />
+                    </propertyInstance>
+                    <elementDefinition Id="91c1d799-d9c2-49a9-b2af-548292eeef71" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1b932109-6711-4a57-a5df-ae15fe5bf76c">
+                    <propertyInstance Id="8297e8a0-ba98-43b1-bf05-370d40bd88c2" name="params" value="false">
+                      <elementDefinition Id="cc29ae79-3649-4c06-9c9f-ccffd26fb26d" />
+                    </propertyInstance>
+                    <elementDefinition Id="721268c6-f9c3-4083-94d2-3d668c5a55df" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="c3458293-559d-4678-b9e0-cdaae1f39bad" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="f058ec31-1e6c-449a-b6af-1e0b544952e3" direction="Return">
+                  <elementDefinition Id="6fe04638-aac0-4536-8514-ff837d511806" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+    <packageHasNamedElement>
+      <referencedType Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" name="ActionResult" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::System::Web::Mvc::ActionResult">
+        <elementDefinition Id="ac7c0c07-08f4-408d-aef7-25e06325ab4b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="ff24664b-a916-432a-bc0a-dc865f4a8b2e" name="LoginModelMVC" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::PBIA_MVCAPP::Models::LoginModelMVC">
+        <elementDefinition Id="7694cd54-06b7-451f-9d23-83df6974aafa" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="1a2e98f1-b97e-4821-b87e-5f08f703cb9d" name="LocalPasswordModelMVC" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::PBIA_MVCAPP::Models::LocalPasswordModelMVC">
+        <elementDefinition Id="30cf0d1b-dfd6-498a-9a9b-99d4a3a8a60a" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="78522210-52fd-494d-9bf6-90cdc4b5118f" name="Nullable&lt;AccountController‎‎.ManageMessageId‎&gt;" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::System::Nullable&lt;AccountController‎‎.ManageMessageId‎&gt;">
+        <elementDefinition Id="2f5869e2-4398-4490-9545-9095305e0b01" />
+      </referencedType>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <referencedType Id="328ebe0a-5913-49e5-bb27-c5c6f0d64e86" name="RegisterModelMVC" isAbstract="false" isLeaf="false" cachedFullName="PBAI_ModelingProject::PBIA_MVCAPP::Models::RegisterModelMVC">
+        <elementDefinition Id="d9147a3f-7e61-47e8-a9c5-f278c04e3d4b" />
+      </referencedType>
+    </packageHasNamedElement>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="b98bc044-813b-45f5-a346-e2af67719f4a" name="HomeController" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <referencesInternal>
+          <reference Id="f928b2c8-d2bb-42d2-be95-d3b4b4b51d0a" handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DHomeController" tag="ViewCode">
+            <elementDefinition Id="9b4e4476-7e7f-4e96-9edc-5756a922e519" />
+          </reference>
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance Id="4a9c0ad2-3b46-4a4d-892d-3b944ba04e19" name="class" profile="CSharpProfile">
+            <elementDefinition Id="cc11b496-db88-48f8-97e0-1e24790c5cda" />
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="a88275d1-dce9-40a9-a993-84455be91016">
+                <propertyInstance Id="29a019c2-bcea-4eab-84af-14ee00b1e39c" name="ClrAttributes">
+                  <elementDefinition Id="be9ac919-7f2e-4af9-923e-fe77f62cc0fa" />
+                </propertyInstance>
+                <elementDefinition Id="595b6e85-663c-40ca-a1e6-868af83f2481" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="6ade48bf-0b84-4c5e-af21-0d08529f46ce">
+                <propertyInstance Id="4504b949-749e-4242-9e82-abf29b52e87d" name="IsPartial" value="false">
+                  <elementDefinition Id="89047404-78a1-4961-8d0c-64f000de77d0" />
+                </propertyInstance>
+                <elementDefinition Id="154c5d3c-6366-48ad-8ba0-6373266179e9" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="8cd47133-d6e0-473e-ba00-e8874591347a">
+                <propertyInstance Id="655417d5-ac5c-43d0-9f61-91a575b44a4f" name="IsStatic" value="False">
+                  <elementDefinition Id="4a7bfe33-8cc1-40ff-8166-4d25cd552cbe" />
+                </propertyInstance>
+                <elementDefinition Id="eb873384-0544-4413-ac25-d3e72bcf01a3" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="77cc8a99-55e9-40e5-a6b9-fc775d1b3d14">
+                <propertyInstance Id="fe82233a-6129-4d4a-9960-7d3b0b4c8122" name="IsUnsafe" value="false">
+                  <elementDefinition Id="c5d7fb1f-0b59-4100-b964-de49c317fa0b" />
+                </propertyInstance>
+                <elementDefinition Id="075179d0-88ca-4ff2-8f4d-dcf4e41c7953" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances Id="b5d96799-dbb0-440c-b6f4-0956fe11343a">
+                <propertyInstance Id="f3388434-8a97-4135-ba59-f6a49d3a24d4" name="PackageVisibility" value="internal">
+                  <elementDefinition Id="36a15ca8-c912-460f-82ba-5d365bae27e5" />
+                </propertyInstance>
+                <elementDefinition Id="8be17d16-78ee-45b6-a1a7-a04edd0ce62f" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <elementDefinition Id="8c6ccb9a-06cd-4a67-bb3d-dad41701c46f" />
+        <ownedOperationsInternal>
+          <operation Id="d20a4afa-413c-4cde-9357-2901e7e9fc21" name="Index" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="74293390-6507-4303-8184-18c05a044440" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DHomeController Member%3DIndex" tag="ViewCode">
+                <elementDefinition Id="82e730ae-671a-4991-93f1-98d9320e114a" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="4d0ce9b5-748a-47e2-af67-f8cf63428486" name="method" profile="CSharpProfile">
+                <elementDefinition Id="cfc0f611-35a6-465c-b5e3-64c4f7ae3540" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0b15225f-399c-437f-8b40-f8323c1f08ac">
+                    <propertyInstance Id="3ebd69c7-2801-4f17-a84b-b51421d3f129" name="ClrAttributes">
+                      <elementDefinition Id="480e325b-c520-4df7-882a-5c1e676a74b3" />
+                    </propertyInstance>
+                    <elementDefinition Id="aabb9ef3-5243-4cdf-80f5-a44a87b09cb6" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="1786280d-1baf-4e9c-a980-5bcec03cfbaa">
+                    <propertyInstance Id="a5c10188-27f4-41dc-bf57-9fb5189612b7" name="IsPartial" value="false">
+                      <elementDefinition Id="6c229c40-91b6-42d0-b881-f251e08f7742" />
+                    </propertyInstance>
+                    <elementDefinition Id="53b26931-1a53-43d3-a24a-c83537469d01" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="7e68eb42-289d-4f4a-9a41-0143ca77711b">
+                    <propertyInstance Id="c42d4074-e984-479f-a0ef-789172baae4d" name="IsUnsafe" value="false">
+                      <elementDefinition Id="d35dcde0-da08-456b-898f-cf31303c4bab" />
+                    </propertyInstance>
+                    <elementDefinition Id="3c590bac-c1c9-4361-acb5-eb74a970a88c" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cd429d28-de4e-4d73-bbdd-d2aed24ba707">
+                    <propertyInstance Id="59be05cf-83b0-48c4-ad09-cb8ed9bcc8cf" name="Inheritance" value="none">
+                      <elementDefinition Id="23287ac2-8421-437c-a831-6d88fc585fce" />
+                    </propertyInstance>
+                    <elementDefinition Id="4ece5a9a-09fb-4e75-8dad-3cf94d85d933" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="fa368de0-39bb-44d8-a4ac-d84a8b1732f7">
+                    <propertyInstance Id="7f48dc9b-64fd-44d3-bb6f-2a5371fb2a8c" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="9cc1f2d4-fa03-44e4-b7e4-fd91e94f02e3" />
+                    </propertyInstance>
+                    <elementDefinition Id="005f2446-2f1c-4eb2-b3f0-0b464d5aa042" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="ba84c931-fec5-4295-b285-612f098501d8">
+                    <propertyInstance Id="f83d2766-6bd0-4a11-8848-667122a24ae7" name="params" value="false">
+                      <elementDefinition Id="caf1122d-2be8-4a0b-81d3-7c6391ccf12e" />
+                    </propertyInstance>
+                    <elementDefinition Id="e1ad9014-6cb1-48c3-89ad-f530cbe24b77" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="1c4fb4d5-55eb-4f33-b819-32bfd141be8c" />
+            <ownedParameters>
+              <operationHasOwnedParameters>
+                <parameter Id="96e1861a-478b-4891-a670-8a8e29eb7126" direction="Return">
+                  <elementDefinition Id="bab944f5-282e-477a-9298-8c681001305a" />
+                  <type_NamedElement>
+                    <referencedTypeMoniker Id="0633d6d5-5ae3-46c4-9452-acac9a3e9468" LastKnownName="ActionResult" />
+                  </type_NamedElement>
+                </parameter>
+              </operationHasOwnedParameters>
+            </ownedParameters>
+          </operation>
+          <operation Id="2e93de48-8757-490b-a64d-22241b5da883" name="HomeController" isLeaf="false" isStatic="false" isAbstract="false" concurrency="Sequential" isQuery="false">
+            <referencesInternal>
+              <reference Id="bbea1392-b782-4115-a1d7-739c77b9c41f" handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Controllers Type%3DHomeController Member%3D.ctor" tag="ViewCode">
+                <elementDefinition Id="c75854ab-8ffb-4630-9d80-df81782824ae" />
+              </reference>
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance Id="d0270316-3c8a-4c83-8fa0-0703e1173b58" name="method" profile="CSharpProfile">
+                <elementDefinition Id="19ff8ad4-384d-4b09-b95e-e187ccf27d6e" />
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="322caf70-9c77-4fcb-b301-e071fff362ff">
+                    <propertyInstance Id="824c6cc9-94c7-42f5-a0c9-df11675e97dd" name="ClrAttributes">
+                      <elementDefinition Id="94c06392-dc13-47b5-a5c3-7e5809df784a" />
+                    </propertyInstance>
+                    <elementDefinition Id="55bf7089-1ef0-412b-84ba-2180d95daa16" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="f5a8c543-771e-4972-a950-0eae500c4312">
+                    <propertyInstance Id="4c0dcaf1-ef32-4d02-94d3-103c3f933dae" name="IsPartial" value="false">
+                      <elementDefinition Id="09125cc8-95f0-4921-b7c3-3c0be88b0e6f" />
+                    </propertyInstance>
+                    <elementDefinition Id="36126007-6b66-4b92-b588-4e681b8d049e" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="32691873-d3ee-48c0-a252-262591b693f3">
+                    <propertyInstance Id="e9158a72-3be5-47c7-a0fb-a0ee30f376a9" name="IsUnsafe" value="false">
+                      <elementDefinition Id="1ca7c393-bfb4-4454-a858-9cbfefdf3705" />
+                    </propertyInstance>
+                    <elementDefinition Id="e115b830-691c-482c-935d-e0df44aecb48" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="0247babb-774e-4a4c-9e97-79f6a151739c">
+                    <propertyInstance Id="0fe4ed1b-9298-4855-bf89-ac8fb4ce1bd6" name="Inheritance" value="none">
+                      <elementDefinition Id="b3389840-b1df-48e1-be7c-e5984e6f5896" />
+                    </propertyInstance>
+                    <elementDefinition Id="b84f3621-5e38-4af9-8982-29d07d36f791" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="cec7e42a-8c9f-4126-8296-c174fad4a5ad">
+                    <propertyInstance Id="48b18dc2-ea8f-4936-b226-49cda6fc575b" name="PackageVisibility" value="internal">
+                      <elementDefinition Id="27b1ea1e-eaf1-41f3-82b5-c1aab310baca" />
+                    </propertyInstance>
+                    <elementDefinition Id="55852326-d3d7-486e-bbd3-684bf31a4994" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances Id="32ffc99f-c316-4262-ac51-9461bc7aebd0">
+                    <propertyInstance Id="f9ad265e-9821-4949-992f-ea48bfdbe1b5" name="params" value="false">
+                      <elementDefinition Id="e8a9893a-2d3f-4e82-a7e6-95764aa12ab5" />
+                    </propertyInstance>
+                    <elementDefinition Id="27842cd8-784c-4d98-b2fc-957ffccc82d8" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <elementDefinition Id="8007af92-e48c-4254-ae25-13893b1e8b3c" />
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="9ab805d3-7d04-47e1-8765-332a8ba7990f" name="PBAI_ModelingProject">
+    <elementDefinition Id="34bb5c46-43ed-47f0-a741-e4183936c952" />
+  </package>
+</logicalClassDesignerModel>

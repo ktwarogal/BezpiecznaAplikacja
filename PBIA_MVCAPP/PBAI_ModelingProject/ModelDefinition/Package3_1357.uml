@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="90f92b98-5557-4cf6-91ad-1c63698d75d1"
+  name="Models"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="340d475b-18ee-4b93-95ab-91322c918518"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DPBIA_MVCAPP.Models"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="7694cd54-06b7-451f-9d23-83df6974aafa"
+        name="LoginModelMVC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="3325953b-b142-44da-bf7e-8db61e675d62"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="0b7dc2a8-cf0f-4af4-af34-5ca7d46f1345"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a8f14f12-5b7f-48c5-ae94-e12dce6afb08">
+                <propertyInstance
+                  Id="32fc3666-4bfb-4666-9571-91e75a4bf4ee"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="117521e7-ee03-4931-a51f-2e6f7e94a53c">
+                <propertyInstance
+                  Id="621701e3-0374-44fa-8d34-180662402db1"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="37c70ea5-0ac7-4de0-a269-47b77a181c08">
+                <propertyInstance
+                  Id="2c9c96e7-f7d2-4587-aa20-688533c485ae"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="759455de-a1b4-41a9-a6a4-33f6ff246195">
+                <propertyInstance
+                  Id="7c3e4363-f0bb-4037-afdb-78ff7ad40a14"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="895120e5-ccfd-480f-b307-bcb99505fed4">
+                <propertyInstance
+                  Id="7533ac1f-c42d-473f-8120-4afe41b9dbcb"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="5f01b6a1-5b30-457c-a20a-682fe5f07b7d"
+        name="RegisterExternalLoginModelMVC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="c98ffd98-08c6-402a-8e45-287820307d63"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterExternalLoginModelMVC"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="4f791651-e7c2-4187-926b-88db106942ff"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e0688fb0-0fd8-442d-98d6-82a54db9faa1">
+                <propertyInstance
+                  Id="41b5c883-99e2-4585-a350-1f52343d6aee"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="16dd4bc4-4364-4a50-a71a-94ea2616206d">
+                <propertyInstance
+                  Id="c8748c69-03e2-44c6-9195-2ee8a002738b"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a6bf32e8-9168-450d-b608-0a93972d7ee8">
+                <propertyInstance
+                  Id="3b7d37ee-8eb0-4f6c-848c-be01dd332d60"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="65326f42-a2ee-42de-a9c6-943b5869d390">
+                <propertyInstance
+                  Id="6f4044e3-1ec4-4972-99c3-7351a674b1f3"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="62ed4c29-1112-4e26-a451-fde90ffc612b">
+                <propertyInstance
+                  Id="acb3c40d-9673-4883-805c-d4869d1e6952"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="30cf0d1b-dfd6-498a-9a9b-99d4a3a8a60a"
+        name="LocalPasswordModelMVC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="63b4898c-fb36-4a8e-8355-94cd160acec7"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLocalPasswordModelMVC"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="9c7c72d2-2d67-4300-8813-0553e19ec2d3"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="026cc980-1bc2-4fe3-ba20-e9b646a1124a">
+                <propertyInstance
+                  Id="a19e5606-5556-41e1-acf9-6c992b5b4255"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8a68bc3d-546a-47b1-8034-7a59a31c1d91">
+                <propertyInstance
+                  Id="106bc694-007e-4632-98e3-1246167ff497"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f03e1748-07c9-4a51-b5ce-e2feb4f2bdc4">
+                <propertyInstance
+                  Id="e58977ba-605f-4c0b-acb5-76c27d34eb66"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="3f6a22e6-f09f-424b-a9b2-0a06cea1638d">
+                <propertyInstance
+                  Id="64763dd5-4547-435a-bf14-6c2b5e02ae29"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8ca8f064-c4b2-44be-a3e6-d2b98e878e2f">
+                <propertyInstance
+                  Id="c904a478-b3a1-456e-bf9c-ec1c159138d3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d9147a3f-7e61-47e8-a9c5-f278c04e3d4b"
+        name="RegisterModelMVC"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="ad803018-097d-4437-b9a9-caeecb9d6ae6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterModelMVC"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="2d39a309-471e-4786-b596-bb91b1b906c0"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="a2e7c487-7cd0-4ca7-8fee-6501e9b55e28">
+                <propertyInstance
+                  Id="63c4aa1b-10e0-4416-b86a-5c1187e70e2f"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="540fd3b1-893e-437f-9b83-2022725ac2b1">
+                <propertyInstance
+                  Id="5dae52b7-c4a4-45d6-8323-d38acde4be58"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="b10903bd-45f3-40ae-a352-663db83c3bec">
+                <propertyInstance
+                  Id="97885501-1192-4f82-a470-84fcd4a49ef9"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="8c5840db-057c-4824-a2e7-66d04d0eb892">
+                <propertyInstance
+                  Id="018b977f-1f5d-4a06-a2ee-bc2221fa0c06"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="af5477c2-39a4-4c18-989b-9bac7d62d533">
+                <propertyInstance
+                  Id="edb23a34-60ed-4759-bf53-9b284d8bbb47"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
