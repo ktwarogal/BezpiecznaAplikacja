@@ -1,0 +1,26 @@
+Team programiœci:
+
+Apka androidowa:
+! * po³¹czenie z WebService i pobranie listy punktów, gdzie stoi SM
+! * rysowanie punktów na mapce
+* sprawdzanie, czy urz¹dzenie ma uruchominego GPSa
+* ddanie menu z ustawieniami
+* zmiana promienia zakresu SM
+* rysowanie odpowiedniego zakresu punktów z SM
+! * obliczanie odgleg³oœci pomiêdzy punktami a userem
+! * oddtwarzanie sygna³u dŸwiêkowego przy wejœciu i wyjœciu ze strefy zagro¿enia
+
+
+
+Web Service:
+* pobranie z podstawionej strony listê punktów
+* weryfikacja WebService (do ustalenia?)
+
+Inne:
+* Wystawienie strony z przyk³adowymi danymi SM
+
+
+
+Diagramy:
+user -> apka -> WebService <-> podstawiona strona (?)
+Jakie daæ diagramy?

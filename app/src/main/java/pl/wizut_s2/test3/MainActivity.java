@@ -1,9 +1,14 @@
 package pl.wizut_s2.test3;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.location.Address;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -15,19 +20,36 @@ import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 
+import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class MainActivity extends FragmentActivity {
 
+    //TODO
+    // - migotanie policji
+    // - poruszanie się w lewo, aż trafi w policję
+    // - sprawdzanie, czy jest w obrębiue policji (dodać flagę)
+
+
     private GoogleMap mMap;
     private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
+    private ArrayList<Address> mPolicePoints;
+    private double mPoliceRadius =45;
+    Location mCurrentLocation = null;
+    private boolean mIsInPoliceRadius = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mPolicePoints = GetPointsFromWeb();
+
 
         
         mMap = ((SupportMapFragment) getSupportFragmentManager()
@@ -42,6 +64,13 @@ public class MainActivity extends FragmentActivity {
         mMap.animateCamera(zoom);
 
 
+        for(Address _Location : mPolicePoints) {
+            mMap.addCircle(new CircleOptions()
+                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
+                    .radius(mPoliceRadius)
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.BLUE));
+        }
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
@@ -49,7 +78,16 @@ public class MainActivity extends FragmentActivity {
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location pLocation) {
                 // Called when a new location is found by the network location provider.
-                MakeUseOfNewLocation(pLocation);
+
+                mCurrentLocation = pLocation;
+                mCurrentLocation.setLongitude(mCurrentLocation.getLongitude());
+                mMap.addCircle(new CircleOptions()
+                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
+                        .radius(10)
+                        .strokeColor(Color.BLACK)
+                        .fillColor(Color.WHITE));
+                MakeUseOfNewLocation();
+                TriggerPoliceActionIfNeeded();
 
             }
 
@@ -62,22 +100,122 @@ public class MainActivity extends FragmentActivity {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
     }
 
-    private void MakeUseOfNewLocation(Location pLocation) {
+    private ArrayList<Address> GetPointsFromWeb() {
+        ArrayList<Address> _RetValue = new ArrayList<Address>();
+
+        // pobieranie koordynatów:  http://mondeca.com/index.php/en/any-place-en
+
+        Address _Address = new Address(Locale.GERMAN);
+        _Address.setLatitude(53.42214);
+        _Address.setLongitude(14.53787);
+        _RetValue.add(_Address);
+
+        return _RetValue;
+    }
+
+
+    private void MakeUseOfNewLocation() {
         Context _Context = getApplicationContext();
         CharSequence _Text = "Zmieniono lokalizację";
         int _Duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(_Context, _Text, _Duration);
-        toast.show();
+        //toast.show();
 
 
         //53.368633, 14.671369
-        CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(pLocation.getLatitude(), pLocation.getLongitude()));
+        CameraUpdate center = CameraUpdateFactory.newLatLng(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()));
         CameraUpdate zoom = CameraUpdateFactory.zoomTo(15);
 
         mMap.moveCamera(center);
         mMap.animateCamera(zoom);
 
+
+
+    }
+
+    private void TriggerPoliceActionIfNeeded() {
+        //Toast.makeText(getBaseContext(), (mIsInPoliceRadius ? "T": "F"), Toast.LENGTH_LONG).show();
+        if(IsInPoliceRadius()){
+
+            if(!mIsInPoliceRadius) {
+                // weszlismy w pole policji, a wczesniej nie bylismy. Odpalamy alarm i zmieniamy flagę
+                Toast.makeText(getBaseContext(), "IN POLICE AREA!", Toast.LENGTH_LONG).show();
+                PlayPoliceAlarm();
+                mIsInPoliceRadius = true;
+            }
+        }
+        else{
+            if(mIsInPoliceRadius)
+            {
+                PlayPoliceAwayNotification();
+                Toast.makeText(getBaseContext(), "LEFT AREA!", Toast.LENGTH_LONG).show();
+            }
+            mIsInPoliceRadius = false;
+
+        }
+    }
+
+    private void PlayPoliceAwayNotification() {
+        // TODO
+    }
+
+    private boolean IsInPoliceRadius() {
+        for(Address _Location : mPolicePoints){
+           if(IsCurrentLocationInRadius(_Location)) {
+            return true;
+           }
+        }
+        return false;
+    }
+
+    private boolean IsCurrentLocationInRadius(Address pAddress) {
+
+        double _Distance;
+        //_Distance = distance(mCurrentLocation.getLatitude(),mCurrentLocation.getLongitude(), pAddress.getLatitude(),pAddress.getLongitude(),'K');
+        float[] results = new float[1];
+        Location.distanceBetween(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude(),
+                pAddress.getLatitude(), pAddress.getLongitude(), results);
+        _Distance = results[0];
+
+        //Toast.makeText(getBaseContext(), "DISTANCE: "+String.valueOf(_Distance), Toast.LENGTH_LONG).show();
+        return _Distance <= mPoliceRadius;
+    }
+
+
+
+
+    private void PlayPoliceAlarm() {
+        try {
+            Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+            Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+            r.play();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private double distance(double lat1, double lon1, double lat2, double lon2, char unit) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        if (unit == 'K') {
+            dist = dist * 1.609344;
+        } else if (unit == 'N') {
+            dist = dist * 0.8684;
+        }
+        return (dist);
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private double rad2deg(double rad) {
+        return (rad * 180 / Math.PI);
     }
 
 
