@@ -36,6 +36,20 @@
         LastKnownName="System"
         LastKnownLocation="Package1_1356.uml" />
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="d05cd040-5aa5-41a1-8d4b-1fa0d70c506c"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="9784bb7a-9eb7-413b-bf74-2dfc2ad053c5"
+        LastKnownName="log4net"
+        LastKnownLocation="Package_1552.uml" />
+    </packageHasNamedElement>
   </packagedElements>
   <primitiveType
     Id="220a3521-e091-4221-bae9-3ef9018e845c"

@@ -48,6 +48,7 @@ namespace PBIA_MVCAPP
 
             try
             {
+                /*
                 using (var context = new UsersContext())
                 {
                     if (!context.Database.Exists())
@@ -55,7 +56,7 @@ namespace PBIA_MVCAPP
                         // Create the SimpleMembership database without Entity Framework migration schema
                         ((IObjectContextAdapter)context).ObjectContext.CreateDatabase();
                     }
-                }
+                }*/
 
                 WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", autoCreateTables: true);
             }

@@ -7,6 +7,7 @@ using System.Security.Cryptography;
 using System.ServiceModel;
 using System.ServiceModel.Activation;
 using System.Text;
+using System.Web;
 using WebMatrix.WebData;
 
 namespace PBIA_MVCAPP
@@ -15,7 +16,7 @@ namespace PBIA_MVCAPP
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     [AspNetCompatibilityRequirements(
         RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    [InitializeSimpleMembership]
+    //[InitializeSimpleMembership]
     public class PBAI_WebService : IPBAI_WebService
     {
         public List<string> GetSpeedCameras()
@@ -31,6 +32,7 @@ namespace PBIA_MVCAPP
             speedCameras.Add("53.442991, 14.520743"); //B. Lindego
             speedCameras.Add("53.434240, 14.518817"); //Witkiewicza
             speedCameras.Add("53.436473, 14.491198"); //Taczaka
+           
             return speedCameras;
         }
 
@@ -38,6 +40,16 @@ namespace PBIA_MVCAPP
         {
             var provider = (SimpleMembershipProvider)System.Web.Security.Membership.Provider;
             var result = provider.ValidateUser(login, pass);
+            if (!result)
+            {
+                var msg = string.Format("Nieudane logowanie przez web-service dla uzytkownika {0}", login);
+                SecurityLog.Instance.WriteMessage(msg, false, GetType());
+            }
+            else
+            {
+                var msg = string.Format("Zalogowano przez web-service {0}", login);
+                SecurityLog.Instance.WriteMessage(msg, false, GetType());
+            }
             return result;
         }
     }

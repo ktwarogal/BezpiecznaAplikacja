@@ -174,5 +174,83 @@
         </ownedRedefinableTemplateSignatureInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="6c0ecf7d-2d6a-4701-902c-6295672f7120"
+        name="List&lt;CurrentIPRequest‎&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="56ea4a0f-2e6a-4b7a-9793-31da42e86ba8"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aaf57927-b999-4bb0-a17b-984c2eca2f69">
+                <propertyInstance
+                  Id="aa65dd3e-f86f-48a9-916b-62c74b7c7ec7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="f955deec-9fac-4b1d-b78d-641ece60b0b8">
+                <propertyInstance
+                  Id="8c0c6292-77af-4dd4-8768-26fa0c8e580d"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="15f5ffbe-8812-46a7-9ab4-0bf90ec774eb">
+                <propertyInstance
+                  Id="d52674dc-10ff-4962-ae18-92c32d9de477"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="65e89659-35af-4084-811b-2e69dadd532e">
+                <propertyInstance
+                  Id="cd7bf336-dad8-4fa8-a92d-779e55889fa6"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="aa281eba-e906-46ec-8a7b-3dbd1830f50d">
+                <propertyInstance
+                  Id="a0662760-c968-41ca-9a63-10c7ae888d54"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <signatures>
+          <templateBinding
+            Id="9f099fb6-0951-4057-87bc-d24bd4d86053">
+            <redefinableTemplateSignatureMoniker
+              Id="102d382a-e3d5-4c31-94ff-218fe41d161b"
+              LastKnownLocation="Package3_1356.uml" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution
+                  Id="b351a36b-3006-421b-bb72-6ed107ccd3e3">
+                  <actuals>
+                    <classMoniker
+                      Id="c07ad7bd-9990-4efc-8eae-1ba70d3eab6c"
+                      LastKnownName="CurrentIPRequest"
+                      LastKnownLocation="Package_1536.uml" />
+                  </actuals>
+                  <formal>
+                    <classifierTemplateParameterMoniker
+                      Id="14702e0a-e142-4b88-97d0-d913a4fdbaf1"
+                      LastKnownLocation="Package3_1356.uml" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+          </templateBinding>
+        </signatures>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

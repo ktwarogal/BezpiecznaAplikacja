@@ -6,22 +6,25 @@
   <MessageClass Name="Error" Label="Error" Option="Show errors" />
   <MessageClass Name="Property" Label="Property" Option="Show metadata" />
   <MessageClass Name="Diagnostic" Label="Message" Option="Show diagnostic messages" />
-  <Message Timestamp="2015-05-31T13:58:06" Importance="High" Text="Reverse Engineering Started." />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP' -  (Package)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers' -  (Package)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Medium" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController' -  (Class)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController::About' -  (Operation)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController::Contact' -  (Operation)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController::HomeController' -  (Operation)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController::Index' -  (Operation)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System' -  (Package)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System::Web' -  (Package)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System::Web::Mvc' -  (Package)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System::Web::Mvc::ActionResult' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System::Web::Mvc::Controller' -  (Class)   (partially reverse engineered - definition not updated) " />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: PBAI_ModelingProject::PBIA_MVCAPP::Controllers::HomeController to PBAI_ModelingProject::System::Web::Mvc::Controller (Generalization)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: PBAI_ModelingProject::PBIA_MVCAPP::Controllers::AccountController to PBAI_ModelingProject::System::Web::Mvc::Controller (Generalization)" />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="High" Text="(1) type(s) fully reverse engineered." />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="High" Text="(2) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
-  <Message Timestamp="2015-05-31T13:58:07" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="High" Text="Reverse Engineering Started." />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'Boolean' -  (PrimitiveType)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::log4net' -  (Package)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::log4net::ILog' -  (Interface)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP' -  (Package)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Medium" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog' -  (Class)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::_instance' -  (Property)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::Instance' -  (Property)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::Log' -  (Property)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::SecurityLog' -  (Operation)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::WriteMessage' -  (Operation)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::WriteMessage::isCorrect' -  (Parameter)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::WriteMessage::str' -  (Parameter)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog::WriteMessage::t' -  (Parameter)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System' -  (Package)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'PBAI_ModelingProject::System::Type' -  (Class)   (partially reverse engineered - definition not updated) " />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Element reverse engineered into the UML model: 'String' -  (PrimitiveType)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="Diagnostic" Text="Relationship reverse engineered into the UML model: PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog to PBAI_ModelingProject::PBIA_MVCAPP::SecurityLog (Association)" />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="High" Text="(1) type(s) fully reverse engineered." />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="High" Text="(2) type(s) partially reverse engineered.  These types were not included in the original selection so their full definitions are not reverse engineered.  Instead, this shallow operation has simply ensured these types exist in the UML model because they are needed in order to fully describe other elements." />
+  <Message Timestamp="2015-06-07T15:52:49" Importance="High" Text="The reverse engineering operation completed with (0) error(s), and (0) warning(s)." />
 </Log>
