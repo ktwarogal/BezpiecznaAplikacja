@@ -4,14 +4,12 @@ import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.AsyncTask;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,25 +17,15 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 
-import org.ksoap2.SoapEnvelope;
-import org.ksoap2.SoapFault;
-import org.ksoap2.serialization.SoapObject;
-import org.ksoap2.serialization.SoapPrimitive;
-import org.ksoap2.serialization.SoapSerializationEnvelope;
-import org.ksoap2.transport.HttpTransportSE;
-import org.xmlpull.v1.XmlPullParserException;
-
-import java.io.IOException;
-
 public class MainActivity extends FragmentActivity {
 
     private GoogleMap mMap;
-//    private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
-    private static final String URL = "http://jgowor-001-site1.smarterasp.net/PBAI_WebService.svc?singleWsdl";
-//    public static final String NAMESPACE = "http://jgowor-001-site1.smarterasp.net";
-    public static final String NAMESPACE = "http://tempuri.org";
-    public static final String SOAP_ACTION_PREFIX = "/IPBAI_WebService/";
-    private static final String METHOD = "GetSpeedCameras";
+
+    WebServiceConnectionManager webServiceConnectionManager;
+
+    public MainActivity() {
+        webServiceConnectionManager = new WebServiceConnectionManager(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +64,6 @@ public class MainActivity extends FragmentActivity {
 // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
 
-        AsyncTaskRunner runner = new AsyncTaskRunner();
-        runner.execute();
     }
 
     private void MakeUseOfNewLocation(Location pLocation) {
@@ -124,70 +110,7 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
-
-        private String resp;
-
-        @Override
-        protected String doInBackground(String... params) {
-            publishProgress("Loading contents..."); // Calls onProgressUpdate()
-            try {
-                // SoapEnvelop.VER11 is SOAP Version 1.1 constant
-                SoapSerializationEnvelope envelope = new SoapSerializationEnvelope(SoapEnvelope.VER11);
-
-                //bodyOut is the body object to be sent out with this envelope
-                envelope.bodyOut = new SoapObject(NAMESPACE, METHOD);
-                HttpTransportSE transport = new HttpTransportSE(URL);
-                try {
-                    transport.call(NAMESPACE + SOAP_ACTION_PREFIX + METHOD, envelope);
-                } catch (IOException | XmlPullParserException e) {
-                    resp = e.getMessage();
-                    Log.w("WebService", "FAIL " + resp);
-                    e.printStackTrace();
-                }
-
-                if(envelope.bodyIn instanceof SoapFault){
-                    final SoapFault sf = (SoapFault) envelope.bodyIn;
-                    resp = sf.getMessage();
-                    Log.w("WebService", "FAIL " + resp);
-                }else if (envelope.bodyIn != null) {
-                    //bodyIn is the body object received with this envelope
-
-                    //getProperty() Returns a specific property at a certain index.
-                    SoapPrimitive resultSOAP = (SoapPrimitive) ((SoapObject) envelope.bodyIn).getProperty(0);
-                    resp = resultSOAP.toString();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-                resp = e.getMessage();
-            }
-            publishProgress(resp);
-            Log.w("WebService", resp);
-            return resp;
-        }
-
-        /**
-         * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
-         */
-        @Override
-        protected void onPostExecute(String result) {
-            // execution of result of Long time consuming operation
-            // In this example it is the return value from the web service
-            publishProgress(result);
-        }
-
-        /**
-         * @see android.os.AsyncTask#onPreExecute()
-         */
-        @Override
-        protected void onPreExecute() {
-            // Things to be done before execution of long running operation. For
-            // example showing ProgessDialog
-        }
-
-        @Override
-        protected void onProgressUpdate(String... text) {
-            displayNotification(text[0]);
-        }
+    public void onListOfEnemiesUpdate(String s) {
+        Log.v("WebServiceResult", "s = " + s);
     }
 }
