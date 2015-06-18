@@ -11,7 +11,14 @@ import org.ksoap2.serialization.SoapSerializationEnvelope;
 import org.ksoap2.transport.HttpTransportSE;
 import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
@@ -25,7 +32,8 @@ import javax.net.ssl.TrustManager;
 public class WebServiceConnectionManager {
 
     //    private static final String URL = "http://jgowor-001-site1.smarterasp.net/PBAI_WebService.svc?singleWsdl";
-    private static final String URL = "https://52.26.121.34/PBAI_WebApp/PBAI_WebService.svc?wsdl";
+//    private static final String URL = "https://52.26.121.34/PBAI_WebApp/PBAI_WebService.svc?wsdl";
+    private static final String URL = "https://52.26.121.34/PBAI_WebApp/PBAI_WebService.svc";
     //    public static final String NAMESPACE = "http://jgowor-001-site1.smarterasp.net";
     public static final String NAMESPACE = "http://tempuri.org";
     public static final String SOAP_ACTION_PREFIX = "/IPBAI_WebService/";
@@ -33,16 +41,76 @@ public class WebServiceConnectionManager {
 
     private MainActivity mainActivity;
 
+    private enum ServiceType {
+        HTTP_GET,
+        SOAP
+    }
+
     WebServiceConnectionManager(MainActivity ma) {
         mainActivity = ma;
 
         allowAllSSL();
 
-        AsyncTaskRunner runner = new AsyncTaskRunner();
+        AsyncTask<String, String, String> runner;
+
+        switch (ServiceType.HTTP_GET) {
+            case HTTP_GET:
+                runner = new HttpGetAsyncTaskRunner();
+                break;
+            case SOAP:
+                runner = new SoapAsyncTaskRunner();
+                break;
+            default:
+                throw new RuntimeException();
+        }
+
         runner.execute();
     }
 
-    private class AsyncTaskRunner extends AsyncTask<String, String, String> {
+    private class HttpGetAsyncTaskRunner extends AsyncTask<String, String, String> {
+
+        private String HTTP_GET_URL = "https://52.26.121.34/PBAI_WebApp/Account/LoginViaMobile?l=snups%40wp.pl&p=123456";
+
+        public String getStringFromInputStream(InputStream stream, String charsetName) throws IOException {
+            int n = 0;
+            char[] buffer = new char[1024 * 4];
+            InputStreamReader reader = new InputStreamReader(stream, charsetName);
+            StringWriter writer = new StringWriter();
+            while (-1 != (n = reader.read(buffer))) writer.write(buffer, 0, n);
+            return writer.toString();
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            String resp = "";
+            try {
+                java.net.URL url = new URL(HTTP_GET_URL);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                InputStream in = new BufferedInputStream(conn.getInputStream());
+
+                resp = getStringFromInputStream(in, "UTF-8");
+
+                conn.disconnect();
+            } catch (Exception e) {
+                e.printStackTrace();
+                resp = e.getMessage();
+            }
+            return resp;
+        }
+
+        /**
+         * @see android.os.AsyncTask#onPostExecute(java.lang.Object)
+         */
+        @Override
+        protected void onPostExecute(String result) {
+            // execution of result of Long time consuming operation
+            // In this example it is the return value from the web service
+            //publishProgress(result);
+            mainActivity.onListOfEnemiesUpdate(result);
+        }
+    }
+
+    private class SoapAsyncTaskRunner extends AsyncTask<String, String, String> {
 
         private String resp;
 
