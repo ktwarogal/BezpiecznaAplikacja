@@ -9,12 +9,12 @@ import android.location.LocationManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -36,11 +36,16 @@ public class MainActivity extends FragmentActivity {
 
 
     private GoogleMap mMap;
-    private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
     private ArrayList<Address> mPolicePoints;
     private double mPoliceRadius =45;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
+
+    public WebServiceConnectionManager webServiceConnectionManager;
+
+    public MainActivity() {
+        webServiceConnectionManager = new WebServiceConnectionManager(this);
+    }
 
 
     @Override
@@ -51,7 +56,7 @@ public class MainActivity extends FragmentActivity {
         mPolicePoints = GetPointsFromWeb();
 
 
-        
+
         mMap = ((SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map)).getMap();
         mMap.setMyLocationEnabled(true);
@@ -162,9 +167,9 @@ public class MainActivity extends FragmentActivity {
 
     private boolean IsInPoliceRadius() {
         for(Address _Location : mPolicePoints){
-           if(IsCurrentLocationInRadius(_Location)) {
-            return true;
-           }
+            if(IsCurrentLocationInRadius(_Location)) {
+                return true;
+            }
         }
         return false;
     }
@@ -241,5 +246,19 @@ public class MainActivity extends FragmentActivity {
         return super.onOptionsItemSelected(item);
     }
 
+
+    public void displayNotification(String text, int duration) {
+        Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+        toast.show();
+    }
+
+    // default values, java style T_T
+    public void displayNotification(String text) {
+        displayNotification(text, Toast.LENGTH_SHORT);
+    }
+
+    public void onListOfEnemiesUpdate(String s) {
+        Log.v("WebService", "s = " + s);
+    }
 
 }

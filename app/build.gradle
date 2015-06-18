@@ -1,5 +1,15 @@
 apply plugin: 'com.android.application'
 
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'http://ksoap2-android.googlecode.com/svn/m2-repo' }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.1.0' // <-- updated
+    }
+}
+
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
@@ -19,8 +29,10 @@ android {
     }
 }
 
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.0.0'
     compile 'com.google.android.gms:play-services:7.0.0'
+    compile 'com.google.code.ksoap2-android:ksoap2-android:3.3.0'
 }
