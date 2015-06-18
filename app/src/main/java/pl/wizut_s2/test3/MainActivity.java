@@ -9,13 +9,12 @@ import android.location.LocationManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -44,7 +43,7 @@ public class MainActivity extends FragmentActivity {
 
     public WebServiceConnectionManager webServiceConnectionManager;
 
-    MainActivity() {
+    public MainActivity() {
         webServiceConnectionManager = new WebServiceConnectionManager(this);
     }
 
