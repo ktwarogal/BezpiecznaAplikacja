@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements PBAIClientInterface {
 
     //TODO
     // - migotanie policji
@@ -41,10 +41,17 @@ public class MainActivity extends FragmentActivity {
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
 
-    public WebServiceConnectionManager webServiceConnectionManager;
+    public WebServiceConnection webServiceConnection;
 
     public MainActivity() {
-        webServiceConnectionManager = new WebServiceConnectionManager(this);
+        switch (WebServiceConnection.ServiceType.HTTP_GET) {
+            case HTTP_GET:
+                webServiceConnection = new GetWebService(this);
+                break;
+            case SOAP:
+                webServiceConnection = new SOAPWebService(this);
+                break;
+        }
     }
 
 
@@ -257,7 +264,7 @@ public class MainActivity extends FragmentActivity {
         displayNotification(text, Toast.LENGTH_SHORT);
     }
 
-    public void onListOfEnemiesUpdate(String s) {
+    public void onListOfScannersUpdate(String s) {
         Log.v("WebService", "s = " + s);
     }
 
