@@ -41,7 +41,8 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
 
-    public WebServiceConnection webServiceConnection;
+
+    public GetWebService webServiceConnection;
 
     public MainActivity() {
         mIsInPoliceRadius = false;
@@ -50,7 +51,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
                 webServiceConnection = new GetWebService(this);
                 break;
             case SOAP:
-                webServiceConnection = new SOAPWebService(this);
+                webServiceConnection = new GetWebService(this);
                 break;
         }
     }

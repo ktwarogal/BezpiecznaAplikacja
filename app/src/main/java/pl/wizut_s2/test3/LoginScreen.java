@@ -39,7 +39,20 @@ import java.util.List;
 /**
  * A login screen that offers login via email/password.
  */
-public class LoginScreen extends Activity implements LoaderCallbacks<Cursor> {
+public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PBAIClientInterface {
+
+
+
+    public void onListOfScannersUpdate(String s) {
+        if(s.equals("")) {
+            mPasswordView.setError("Wrong credentials lol!!");
+            LoginWebService = null;
+        }
+        else{
+            LoginWebService = null;
+            attemptLogin();
+        }
+    }
 
     /**
      * A dummy authentication store containing known user names and passwords.
@@ -48,6 +61,13 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor> {
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+
+    private GetLoginService LoginWebService;
+
+    public LoginScreen(){
+
+    }
+
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -74,7 +94,7 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor> {
             @Override
             public boolean onEditorAction(TextView textView, int id, KeyEvent keyEvent) {
                 if (id == R.id.login || id == EditorInfo.IME_NULL) {
-                    attemptLogin();
+                    //attemptLogin();
                     return true;
                 }
                 return false;
@@ -85,12 +105,26 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor> {
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                attemptLogin();
+               //attemptLogin();
+                GetLoginSuccessFromServer();
             }
         });
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+    }
+
+    private void GetLoginSuccessFromServer() {
+        String _Login = mLoginView.getText().toString();
+        String _Password = mPasswordView.getText().toString();
+        //_Login = "snups@wp.pl";
+        //_Password = "123456";
+
+        if(LoginWebService == null) {
+            LoginWebService = new GetLoginService(this);
+        }
+        LoginWebService.GetLoginResponse(_Login, _Password);
+
     }
 
     private void populateAutoComplete() {
