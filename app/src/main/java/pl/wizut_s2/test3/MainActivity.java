@@ -9,12 +9,12 @@ import android.location.LocationManager;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
-
 
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity implements PBAIClientInterface {
 
     //TODO
     // - migotanie policji
@@ -36,22 +36,36 @@ public class MainActivity extends FragmentActivity {
 
 
     private GoogleMap mMap;
-    private static final String URL =  "http://192.168.202.124:9000/AndroidWS/wsdl/ServiceImpl.wsdl";
     private ArrayList<Address> mPolicePoints;
-    private double mPoliceRadius =45;
+    private double mPoliceRadius =150;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
+
+
+    public GetWebService webServiceConnection;
+
+    public MainActivity() {
+        mIsInPoliceRadius = false;
+        switch (WebServiceConnection.ServiceType.HTTP_GET) {
+            case HTTP_GET:
+                webServiceConnection = new GetWebService(this);
+                break;
+            case SOAP:
+                webServiceConnection = new GetWebService(this);
+                break;
+        }
+    }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mPolicePoints = new ArrayList<Address>();
+        //mPolicePoints = GetPointsFromWeb();
 
-        mPolicePoints = GetPointsFromWeb();
 
 
-        
         mMap = ((SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map)).getMap();
         mMap.setMyLocationEnabled(true);
@@ -64,13 +78,13 @@ public class MainActivity extends FragmentActivity {
         mMap.animateCamera(zoom);
 
 
-        for(Address _Location : mPolicePoints) {
-            mMap.addCircle(new CircleOptions()
-                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
-                    .radius(mPoliceRadius)
-                    .strokeColor(Color.RED)
-                    .fillColor(Color.BLUE));
-        }
+//        for(Address _Location : mPolicePoints) {
+//            mMap.addCircle(new CircleOptions()
+//                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
+//                    .radius(mPoliceRadius)
+//                    .strokeColor(Color.RED)
+//                    .fillColor(Color.BLUE));
+//        }
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
@@ -81,11 +95,12 @@ public class MainActivity extends FragmentActivity {
 
                 mCurrentLocation = pLocation;
                 mCurrentLocation.setLongitude(mCurrentLocation.getLongitude());
-                mMap.addCircle(new CircleOptions()
-                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
-                        .radius(10)
-                        .strokeColor(Color.BLACK)
-                        .fillColor(Color.WHITE));
+// debug only
+//                mMap.addCircle(new CircleOptions()
+//                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
+//                        .radius(10)
+//                        .strokeColor(Color.BLACK)
+//                        .fillColor(Color.WHITE));
                 MakeUseOfNewLocation();
                 TriggerPoliceActionIfNeeded();
 
@@ -98,6 +113,16 @@ public class MainActivity extends FragmentActivity {
 
 // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
+    }
+
+    void AddPolicePointsOnMap() {
+        for(Address _Location : mPolicePoints) {
+            mMap.addCircle(new CircleOptions()
+                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
+                    .radius(mPoliceRadius)
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.BLUE));
+        }
     }
 
     private ArrayList<Address> GetPointsFromWeb() {
@@ -136,23 +161,32 @@ public class MainActivity extends FragmentActivity {
 
     private void TriggerPoliceActionIfNeeded() {
         //Toast.makeText(getBaseContext(), (mIsInPoliceRadius ? "T": "F"), Toast.LENGTH_LONG).show();
-        if(IsInPoliceRadius()){
+        if(IsInPoliceRadius()){ // if in police radius
 
-            if(!mIsInPoliceRadius) {
+            if(!mIsInPoliceRadius) {  // first time in police radius, play sound
                 // weszlismy w pole policji, a wczesniej nie bylismy. Odpalamy alarm i zmieniamy flagę
                 Toast.makeText(getBaseContext(), "IN POLICE AREA!", Toast.LENGTH_LONG).show();
                 PlayPoliceAlarm();
-                mIsInPoliceRadius = true;
+
             }
+            else{  // have already been in police radius, don't play sound
+                Toast.makeText(getBaseContext(), "still in police area", Toast.LENGTH_LONG).show();
+            }
+
+            mIsInPoliceRadius = true;
         }
-        else{
-            if(mIsInPoliceRadius)
+        else{ // not in police radius
+            if(mIsInPoliceRadius)  // just left the radius, play the sound
             {
                 PlayPoliceAwayNotification();
                 Toast.makeText(getBaseContext(), "LEFT AREA!", Toast.LENGTH_LONG).show();
+                PlayPoliceAlarm();
             }
-            mIsInPoliceRadius = false;
+            else{  // still in police radius in this session
+                Toast.makeText(getBaseContext(), "still NOT in police area", Toast.LENGTH_LONG).show();
+            }
 
+            mIsInPoliceRadius = false;
         }
     }
 
@@ -162,9 +196,9 @@ public class MainActivity extends FragmentActivity {
 
     private boolean IsInPoliceRadius() {
         for(Address _Location : mPolicePoints){
-           if(IsCurrentLocationInRadius(_Location)) {
-            return true;
-           }
+            if(IsCurrentLocationInRadius(_Location)) {
+                return true;
+            }
         }
         return false;
     }
@@ -239,6 +273,35 @@ public class MainActivity extends FragmentActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void displayNotification(String text, int duration) {
+        Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+        toast.show();
+    }
+
+    // default values, java style T_T
+    public void displayNotification(String text) {
+        displayNotification(text, Toast.LENGTH_SHORT);
+    }
+
+    public void onListOfScannersUpdate(String s) {
+        //Log.v("WebService", "s = " + s);
+        PreparePolicePoints(s);
+        AddPolicePointsOnMap();
+    }
+
+    private void PreparePolicePoints(String pPoints) {
+        String [] _Points = pPoints.split("\\|",-1);
+        for(String _Point : _Points){
+            String [] _Coordinates = _Point.split("\\,");
+            Address _TempAddress = new Address(Locale.GERMAN);
+            _TempAddress.setLatitude(Double.parseDouble(_Coordinates[0]));
+            _TempAddress.setLongitude(Double.parseDouble(_Coordinates[1]));
+            mPolicePoints.add(_TempAddress);
+
+        }
     }
 
 
