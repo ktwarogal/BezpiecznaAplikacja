@@ -37,7 +37,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
     private GoogleMap mMap;
     private ArrayList<Address> mPolicePoints;
-    private double mPoliceRadius =150;
+    private double mPoliceRadius =185;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
 
@@ -95,11 +95,12 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
                 mCurrentLocation = pLocation;
                 mCurrentLocation.setLongitude(mCurrentLocation.getLongitude());
-                mMap.addCircle(new CircleOptions()
-                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
-                        .radius(10)
-                        .strokeColor(Color.BLACK)
-                        .fillColor(Color.WHITE));
+// debug only
+//                mMap.addCircle(new CircleOptions()
+//                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
+//                        .radius(10)
+//                        .strokeColor(Color.BLACK)
+//                        .fillColor(Color.WHITE));
                 MakeUseOfNewLocation();
                 TriggerPoliceActionIfNeeded();
 
@@ -160,23 +161,32 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
     private void TriggerPoliceActionIfNeeded() {
         //Toast.makeText(getBaseContext(), (mIsInPoliceRadius ? "T": "F"), Toast.LENGTH_LONG).show();
-        if(IsInPoliceRadius()){
+        if(IsInPoliceRadius()){ // if in police radius
 
-            if(!mIsInPoliceRadius) {
+            if(!mIsInPoliceRadius) {  // first time in police radius, play sound
                 // weszlismy w pole policji, a wczesniej nie bylismy. Odpalamy alarm i zmieniamy flagę
                 Toast.makeText(getBaseContext(), "IN POLICE AREA!", Toast.LENGTH_LONG).show();
                 PlayPoliceAlarm();
-                mIsInPoliceRadius = true;
+
             }
+            else{  // have already been in police radius, don't play sound
+                Toast.makeText(getBaseContext(), "still in police area", Toast.LENGTH_LONG).show();
+            }
+
+            mIsInPoliceRadius = true;
         }
-        else{
-            if(mIsInPoliceRadius)
+        else{ // not in police radius
+            if(mIsInPoliceRadius)  // just left the radius, play the sound
             {
                 PlayPoliceAwayNotification();
                 Toast.makeText(getBaseContext(), "LEFT AREA!", Toast.LENGTH_LONG).show();
+                PlayPoliceAlarm();
             }
-            mIsInPoliceRadius = false;
+            else{  // still in police radius in this session
+                Toast.makeText(getBaseContext(), "still NOT in police area", Toast.LENGTH_LONG).show();
+            }
 
+            mIsInPoliceRadius = false;
         }
     }
 
