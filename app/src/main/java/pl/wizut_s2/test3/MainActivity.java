@@ -37,7 +37,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
     private GoogleMap mMap;
     private ArrayList<Address> mPolicePoints;
-    private double mPoliceRadius =185;
+    private double mPoliceRadius =150;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
 
