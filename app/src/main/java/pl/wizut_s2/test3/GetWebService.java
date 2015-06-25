@@ -11,15 +11,10 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class GetWebService extends WebServiceConnection {
-
-    // todo
-    // update address
-    private String HTTP_GET_URL = "https://52.26.121.34/PBAI_WebApp/Account/LoginViaMobile?l=snups%40wp.pl&p=123456";
+    private String HTTP_GET_URL = "https://projekt-pbai.pl/PBAI_WebApp/Account/LoginViaMobile?l=snups%40wp.pl&p=123456";
 
     public GetWebService(PBAIClientInterface client) {
         super(client);
-
-        DebugTools.allowAllSSL();
 
         AsyncTask<String, String, String> runner;
         runner = new HttpGetAsyncTaskRunner();
