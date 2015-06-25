@@ -29,9 +29,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 
 public class SOAPWebService extends WebServiceConnection {
-    // todo
-    // update address
-    private static final String URL = "https://52.26.121.34/PBAI_WebApp/PBAI_WebService.svc";
+    private static final String URL = "https://projekt-pbai.pl/PBAI_WebApp/PBAI_WebService.svc";
     public static final String NAMESPACE = "http://tempuri.org";
     public static final String SOAP_ACTION_PREFIX = "/IPBAI_WebService/";
     private static final String METHOD = "GetSpeedCameras";
@@ -43,8 +41,6 @@ public class SOAPWebService extends WebServiceConnection {
 
     public SOAPWebService(PBAIClientInterface client) {
         super(client);
-
-        DebugTools.allowAllSSL();
 
         AsyncTask<String, String, String> runner;
         runner = new SoapAsyncTaskRunner();
