@@ -37,13 +37,14 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
     private GoogleMap mMap;
     private ArrayList<Address> mPolicePoints;
-    private double mPoliceRadius =45;
+    private double mPoliceRadius =150;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
 
     public WebServiceConnection webServiceConnection;
 
     public MainActivity() {
+        mIsInPoliceRadius = false;
         switch (WebServiceConnection.ServiceType.HTTP_GET) {
             case HTTP_GET:
                 webServiceConnection = new GetWebService(this);
@@ -59,8 +60,8 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mPolicePoints = GetPointsFromWeb();
+        mPolicePoints = new ArrayList<Address>();
+        //mPolicePoints = GetPointsFromWeb();
 
 
 
@@ -76,13 +77,13 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
         mMap.animateCamera(zoom);
 
 
-        for(Address _Location : mPolicePoints) {
-            mMap.addCircle(new CircleOptions()
-                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
-                    .radius(mPoliceRadius)
-                    .strokeColor(Color.RED)
-                    .fillColor(Color.BLUE));
-        }
+//        for(Address _Location : mPolicePoints) {
+//            mMap.addCircle(new CircleOptions()
+//                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
+//                    .radius(mPoliceRadius)
+//                    .strokeColor(Color.RED)
+//                    .fillColor(Color.BLUE));
+//        }
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 
@@ -110,6 +111,16 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
 // Register the listener with the Location Manager to receive location updates
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
+    }
+
+    void AddPolicePointsOnMap() {
+        for(Address _Location : mPolicePoints) {
+            mMap.addCircle(new CircleOptions()
+                    .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
+                    .radius(mPoliceRadius)
+                    .strokeColor(Color.RED)
+                    .fillColor(Color.BLUE));
+        }
     }
 
     private ArrayList<Address> GetPointsFromWeb() {
@@ -265,7 +276,22 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     }
 
     public void onListOfScannersUpdate(String s) {
-        Log.v("WebService", "s = " + s);
+        //Log.v("WebService", "s = " + s);
+        PreparePolicePoints(s);
+        AddPolicePointsOnMap();
     }
+
+    private void PreparePolicePoints(String pPoints) {
+        String [] _Points = pPoints.split("\\|",-1);
+        for(String _Point : _Points){
+            String [] _Coordinates = _Point.split("\\,");
+            Address _TempAddress = new Address(Locale.GERMAN);
+            _TempAddress.setLatitude(Double.parseDouble(_Coordinates[0]));
+            _TempAddress.setLongitude(Double.parseDouble(_Coordinates[1]));
+            mPolicePoints.add(_TempAddress);
+
+        }
+    }
+
 
 }
