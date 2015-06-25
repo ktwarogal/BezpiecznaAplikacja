@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Funq;
+using ServiceStack;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
@@ -17,11 +20,10 @@ namespace PBIA_MVCAPP
     {
         protected void Application_Start()
         {
-            //GlobalFilters.Filters.Add(new RequireHttpsAttribute());
-            //WebSecurity.InitializeDatabaseConnection("DefaultConnection", "UserProfile", "UserId", "UserName", false);
             AreaRegistration.RegisterAllAreas();
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();

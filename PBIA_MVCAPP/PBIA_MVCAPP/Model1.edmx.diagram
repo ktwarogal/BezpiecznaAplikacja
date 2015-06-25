@@ -11,6 +11,7 @@
         <EntityTypeShape EntityType="PBAI_DbModel.webpages_Roles" Width="2.625" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="PBAI_DbModel.webpages_UsersInRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="PBAI_DbModel.BannedIpAdresses" Width="1.5" PointX="4.375" PointY="4.5" />
+        <EntityTypeShape EntityType="PBAI_DbModel.InactiveUserLink" Width="1.5" PointX="8.625" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

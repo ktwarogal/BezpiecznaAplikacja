@@ -356,7 +356,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="f003665e-cce6-4906-85f0-6f5c0b920080"
+            Id="f86616af-52a1-406c-a60e-60f7f67ef7bd"
             name="SecurityCheckAttribute"
             isLeaf="false"
             isStatic="false"
@@ -365,54 +365,54 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="70094fc7-6cd0-44af-a127-615254179e30"
+                Id="08363df6-51f7-48d2-8546-009aaf652845"
                 handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Filters Type%3DSecurityCheckAttribute Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="19c2e896-0850-42d7-a9d8-344eeae550e4"
+                Id="cb8bc114-4948-4e3b-9356-9415f3348b72"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="bef4d0d6-fc3e-47a3-82a7-216543e8befb">
+                    Id="101833ca-ce0a-4fce-a6e6-f961ae160a9b">
                     <propertyInstance
-                      Id="db7d5903-cc8e-4cc0-976d-59efe20579f7"
+                      Id="5c0d185c-2a15-4bb6-9171-06a25a0d4d35"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="17415d53-576e-4cf3-a4a1-c8c6f081b5fe">
+                    Id="cc44e9b7-555d-4f8b-bc8a-8684848873ae">
                     <propertyInstance
-                      Id="ffa0b960-5068-4949-bac8-bf29afdd7e48"
+                      Id="585ee090-9b6c-4750-b630-2a07f9709983"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d3d79ea8-da5c-42fb-bf99-f7e33aed3e72">
+                    Id="2e66498e-73b5-4f7b-9578-192cfcd95262">
                     <propertyInstance
-                      Id="93160a55-e70e-4e2a-a7db-e93603c73352"
+                      Id="12d12405-499f-4ef2-ad58-e7aae059b73f"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="d1ea3b55-3734-41ee-afc5-7f2e606affee">
+                    Id="1bcde660-d68f-458d-9920-67304148a25c">
                     <propertyInstance
-                      Id="767eeada-a6ef-40c2-aedb-09f8125d2b30"
+                      Id="7c8b947f-3d9d-47ec-8bcf-91e35ffa1b85"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="11ef2a03-b68d-4d71-9378-2480ad2f4fd9">
+                    Id="81678123-c8ac-4f78-a493-c23298a2b1d0">
                     <propertyInstance
-                      Id="260b69e4-18c8-484a-9273-b8376ca75b04"
+                      Id="a427b395-4a65-432c-ad2e-b5d91eb50ceb"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="9de91f97-dc8d-48b2-889e-756ce6835cd3">
+                    Id="382d682f-a7b4-4528-a3e1-e2fdd989ad2c">
                     <propertyInstance
-                      Id="2b939742-731c-4bb9-a992-86a65b43d873"
+                      Id="3b83bdef-2bc0-4d1c-9b01-1ec299953911"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>

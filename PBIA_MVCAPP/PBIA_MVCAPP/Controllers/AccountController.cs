@@ -10,15 +10,17 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using PBIA_MVCAPP.Filters;
 using PBIA_MVCAPP.Models;
+using System.Net;
+using HtmlAgilityPack;
 
 namespace PBIA_MVCAPP.Controllers
 {
     [RequireHttps]
     [Authorize]
     [SecurityCheck]
-    //[InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private const string PAGE_URL = "http://technologieinter.esy.es/strazmiejska.html";
         //
         // GET: /Account/Login
 
@@ -37,16 +39,138 @@ namespace PBIA_MVCAPP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModelMVC model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            var isConfirmed = WebSecurity.IsConfirmed(model.UserName);
+
+            if(isConfirmed)
             {
-                return RedirectToLocal(returnUrl);
+                if (ModelState.IsValid)
+                {
+                    var isLoggedIn = WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe);
+                    if (isLoggedIn)
+                        return RedirectToLocal(returnUrl);
+                    else
+                    {
+                        ModelState.AddModelError("", "Logowanie nie powiodło się");
+                        SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle dane logowania", model.UserName), false, GetType());
+                    }
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Nieprawidłowe dane logowania");
+                    SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle wpisane dane", model.UserName), false, GetType());
+                }
+            }
+            else
+            {
+                SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nieaktywny", model.UserName), false, GetType());
+                ModelState.AddModelError("", "To konto nie zostało jeszcze aktywowane");
             }
 
-            SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0}",model.UserName),false,GetType());
+            
             // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "Złe dane do logowania");
+            
             return View(model);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public string LoginViaMobile(string l, string p)
+        {
+            if (l == null || p == null)
+                return null;
+            var provider = (SimpleMembershipProvider)System.Web.Security.Membership.Provider;
+            var result = provider.ValidateUser(l, p);
+
+            if (!result)
+            {
+                var msg = string.Format("Nieudane logowanie przez e dla uzytkownika {0}", l);
+                SecurityLog.Instance.WriteMessage(msg, false, GetType());
+                return null;
+            }
+            else
+            {
+                var msg = string.Format("Zalogowano przez komorke {0}", l);
+                SecurityLog.Instance.WriteMessage(msg, true, GetType());
+                return GetSpeedCameras();
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public string GetVersion()
+        {
+            return "1.0";
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ActivateUser(string token)
+        {
+            var isSuccess = WebSecurity.ConfirmAccount(token);
+            if(isSuccess)
+                return RedirectToAction("UserActivated", "Account");
+            else
+                return RedirectToAction("UserActivationFailed", "Account");
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserActivated()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserActivationFailed()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Registered()
+        {
+            return View();
+        }
+
+        private string GetSpeedCameras()
+        {
+            var speedCameras = string.Empty;
+
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var html = wc.DownloadString(PAGE_URL);
+                    var htmlDoc = new HtmlDocument();
+                    htmlDoc.LoadHtml(html);
+                    var ulElement = htmlDoc.DocumentNode.Descendants("ul").FirstOrDefault(x => x.Id == "suszing-list");
+                    if (ulElement == null)
+                    {
+                        SecurityLog.Instance.WriteMessage("Nie mozna znalezc elementu ul na stronie", true, this.GetType());
+                        return null;
+                    }
+
+                    var li = ulElement.Descendants("li").ToList();
+                    foreach (var listElement in li)
+                    {
+                        speedCameras+=listElement.InnerText.Trim() + "|";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SecurityLog.Instance.WriteMessage(string.Format("{0} : {1}", ex.GetType(), ex.Message), true, this.GetType());
+                return null;
+            }
+
+            SecurityLog.Instance.WriteMessage("asd", true, this.GetType());
+            if (string.IsNullOrEmpty(speedCameras))
+                return null;
+            else
+                return speedCameras.Substring(0,speedCameras.Length-1);
+        }
+
+
 
         //
         // POST: /Account/LogOff
@@ -82,10 +206,19 @@ namespace PBIA_MVCAPP.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    SecurityLog.Instance.WriteMessage(string.Format("Zarejestrowano nowego uzytkownika {0}",model.UserName),true,GetType());
-                    return RedirectToAction("Index", "Home");
+                    var token = WebSecurity.CreateUserAndAccount(model.UserName, model.Password,null,true);
+                    var result = HelperMethods.ActivateUserMail(token, model.UserName);
+                    if (result)
+                    {
+                        SecurityLog.Instance.WriteMessage(string.Format("Zarejestrowano nowego uzytkownika {0}", model.UserName), true, GetType());
+                        return RedirectToAction("Registered", "Account");
+                    }
+                    else
+                    {
+                        ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(model.UserName); // deletes record from webpages_Membership table
+                        ((SimpleMembershipProvider)Membership.Provider).DeleteUser(model.UserName, true); // deletes record from UserProfile table
+                        SecurityLog.Instance.WriteMessage(string.Format("Wystąpił błąd podczas wysyłania e-mail do uzytkownika {0}", model.UserName), true, GetType());
+                    }
                 }
                 catch (MembershipCreateUserException e)
                 {

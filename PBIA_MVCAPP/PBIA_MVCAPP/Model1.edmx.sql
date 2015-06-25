@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2015 13:58:34
+-- Date Created: 06/18/2015 19:59:24
 -- Generated from EDMX file: F:\Repozytorium\BezpieczenaApka\BezpiecznaAplikacja\PBIA_MVCAPP\PBIA_MVCAPP\Model1.edmx
 -- --------------------------------------------------
 
@@ -96,6 +96,14 @@ CREATE TABLE [dbo].[BannedIpAdresses] (
 );
 GO
 
+-- Creating table 'InactiveUserLinks'
+CREATE TABLE [dbo].[InactiveUserLinks] (
+    [ID] int IDENTITY(1,1) NOT NULL,
+    [MagicGuid] nvarchar(500)  NOT NULL,
+    [UserName] nvarchar(300)  NOT NULL
+);
+GO
+
 -- Creating table 'webpages_UsersInRoles'
 CREATE TABLE [dbo].[webpages_UsersInRoles] (
     [webpages_Roles_RoleId] int  NOT NULL,
@@ -134,6 +142,12 @@ GO
 -- Creating primary key on [ID] in table 'BannedIpAdresses'
 ALTER TABLE [dbo].[BannedIpAdresses]
 ADD CONSTRAINT [PK_BannedIpAdresses]
+    PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [ID] in table 'InactiveUserLinks'
+ALTER TABLE [dbo].[InactiveUserLinks]
+ADD CONSTRAINT [PK_InactiveUserLinks]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 

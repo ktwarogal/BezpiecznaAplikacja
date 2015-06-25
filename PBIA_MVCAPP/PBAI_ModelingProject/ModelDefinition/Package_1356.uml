@@ -663,6 +663,74 @@
             </propertyInstances>
           </stereotypeInstance>
         </appliedStereotypesInternal>
+        <targetEnds>
+          <association
+            Id="1210f3cb-d5ee-4985-9aef-0bcf52f2e22a"
+            isDerived="false"
+            sourceEndRoleName="SecurityLog"
+            targetEndRoleName="Instance"
+            isLeaf="false"
+            isAbstract="false">
+            <classMoniker
+              Id="7143fdbc-0969-45fc-82f7-9cbd0b7e40ca"
+              LastKnownName="SecurityLog"
+              LastKnownLocation="Package_1356.uml" />
+            <description>Property Instance references type SecurityLog.</description>
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="27b597fc-b4fc-4553-bbaa-4ea8a49171be"
+                  name="SecurityLog"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="1fbf2479-55dd-4882-a6fd-258a8c3835b4"
+                      name="Lower"
+                      value="*" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="6e6137a2-4a11-4b7c-8695-c666ae5a59b7"
+                      name="Upper"
+                      value="*" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="c1922b1b-701d-4e6d-b4cb-c8712534a156"
+                  name="Instance"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false">
+                  <lowerValueInternal>
+                    <literalString
+                      Id="fa4af832-4240-4bd0-8556-74d2bb576810"
+                      name="Lower"
+                      value="1" />
+                  </lowerValueInternal>
+                  <upperValueInternal>
+                    <literalString
+                      Id="7f2f158e-5cf7-47e4-af8d-676a7a39179d"
+                      name="Upper"
+                      value="1" />
+                  </upperValueInternal>
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
         <ownedAttributesInternal>
           <property
             Id="7cfa5730-c02d-4175-86b1-ac9ad2e1311c"
@@ -1005,7 +1073,7 @@
             </ownedParameters>
           </operation>
           <operation
-            Id="b9769e4f-19af-4d71-82c1-a4e1ff854431"
+            Id="6e34b15f-f5f3-4816-bc7f-2881db5d4d56"
             name="SecurityLog"
             isLeaf="false"
             isStatic="false"
@@ -1014,54 +1082,341 @@
             isQuery="false">
             <referencesInternal>
               <reference
-                Id="7b058c74-7cb8-4cb6-ad36-80216a576485"
+                Id="db336dff-2ae9-4ee2-817d-ff91b4febbb9"
                 handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DSecurityLog Member%3D.ctor"
                 tag="ViewCode" />
             </referencesInternal>
             <appliedStereotypesInternal>
               <stereotypeInstance
-                Id="922b9f40-cd45-4d33-8af7-e4ada782a3c6"
+                Id="e03520d9-ba35-4239-a491-ca0f922f590a"
                 name="method"
                 profile="CSharpProfile">
                 <propertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e2493416-4e8d-418f-99c7-292d69884313">
+                    Id="cf84638f-3218-4cb8-88d8-c8bcb8aca4d5">
                     <propertyInstance
-                      Id="379eaa4a-179c-4cac-b10a-a52d3adfbdb7"
+                      Id="f646ee9e-a47b-4c60-a394-c5751d2472f8"
                       name="ClrAttributes" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="6ad6f5cd-b19d-48f4-90a1-9bb90e0ce813">
+                    Id="8ceb6b6f-8d6b-4c9b-8d7d-b98acb8fe30a">
                     <propertyInstance
-                      Id="d239f824-a1ee-4d6d-b1b4-42c8f8fe89c0"
+                      Id="73b8bdf0-54e3-4459-bad9-a3b49c58a107"
                       name="IsPartial"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="aad40065-c526-4f94-9af4-b5d600b314d7">
+                    Id="cba0fe95-badf-4cf2-9618-3f06e8d8aa0f">
                     <propertyInstance
-                      Id="93266779-34c5-4218-8fe9-a468bd52977a"
+                      Id="ff5b20fa-434c-4396-b6be-eedd6295e98f"
                       name="IsUnsafe"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="e318d9ae-cfbe-4d4f-bffd-e46961b31b10">
+                    Id="339e5183-6d66-43e0-8710-b05c68731706">
                     <propertyInstance
-                      Id="cd5a1343-c067-483f-81f2-aab611925222"
+                      Id="7332c9e8-1bca-474b-a945-91abd27e5c16"
                       name="Inheritance"
                       value="none" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="3c98bdee-de0f-4342-9a89-85462d29f5a0">
+                    Id="657ed450-ab1a-4a8a-92d4-6f661130f493">
                     <propertyInstance
-                      Id="d1dac305-e7c5-430e-9693-4a2ebc893c22"
+                      Id="444ebcf9-40a0-449b-a266-da9533f0e6e4"
                       name="PackageVisibility"
                       value="internal" />
                   </stereotypeInstanceHasPropertyInstances>
                   <stereotypeInstanceHasPropertyInstances
-                    Id="2a7825cf-7114-451b-9656-fb97d03c3328">
+                    Id="429e1d1c-ced0-484e-aed8-cd2bb4aae56d">
                     <propertyInstance
-                      Id="9df80e65-15b1-45ca-a183-42fea3430651"
+                      Id="2bddc3d4-07f3-428b-b02d-ad1ad75931de"
+                      name="params"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+          </operation>
+        </ownedOperationsInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b4226684-c50e-4ed7-b168-adf9a918b429"
+        name="BannedIpAdresses"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="61de8380-5e6f-41b1-8f25-ee55bbaf30c6"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DBannedIpAdresses"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="8fd233d0-4c3c-4033-a69a-a1718c7cd108"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="83fbb180-761b-4d8d-b48b-b31c98c928b3">
+                <propertyInstance
+                  Id="b29d93e6-faae-41fe-9ddb-c0c73ceb8c78"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d1eb9cd5-88e4-4792-8297-7cf2ea10d973">
+                <propertyInstance
+                  Id="db7406ce-494f-4779-a459-100a2346ddcd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="94f49e7a-8fca-4175-a291-801fc50c22c2">
+                <propertyInstance
+                  Id="e5bc2e8b-2979-462e-835a-9359116ee46f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="e864b98b-1565-40cd-b000-e02c943cc613">
+                <propertyInstance
+                  Id="32f8c365-6817-49b5-b92a-0b913670cb48"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb792d1e-af0f-4013-817c-b722bc89bc5e">
+                <propertyInstance
+                  Id="3efdd3f7-fd15-4f2c-bf02-61be8d226fb1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <ownedAttributesInternal>
+          <property
+            Id="de6d29b0-6992-4479-a64f-ce9e60b375f7"
+            name="ID"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="13b76363-5778-4d49-9162-ffb07bfda570"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DBannedIpAdresses Member%3DID"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="7e81779e-3042-4b1a-b587-e1024610812e"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b1e9e33e-7ccb-4a95-9052-b3e3cb114b65">
+                    <propertyInstance
+                      Id="86f4b505-04c9-4665-bc5e-b7aecf9b8607"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1deaf10d-d7e8-42b9-831b-68d269854290">
+                    <propertyInstance
+                      Id="82013693-646f-4a6b-9798-09a451a53365"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="9404afd3-06e1-4398-ba53-2e9a343a5d7b">
+                    <propertyInstance
+                      Id="54755bb7-55cd-47d0-a5df-3dd8631391e5"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="0380366e-142d-469b-b287-e5ff4d93f157">
+                    <propertyInstance
+                      Id="7224254e-2586-4bab-811e-e45f1feeed68"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e3e1271c-7450-42c6-930a-5a3744f864d6">
+                    <propertyInstance
+                      Id="bebf6512-096d-4bcc-86db-a908eace261c"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ea298dc1-72b0-4fd2-8d75-7062a3f6f3cb">
+                    <propertyInstance
+                      Id="95bd131d-0959-4e01-b3eb-8b57748e1a0b"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="921c1751-0692-4bcd-9e28-d388253f2b2b">
+                    <propertyInstance
+                      Id="399d935b-f711-4daf-beaa-37eae57e59f3"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="220a3521-e091-4221-bae9-3ef9018e845c"
+                LastKnownName="Integer"
+                LastKnownLocation="PBAI_ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+          <property
+            Id="e669eed1-55a0-46db-a999-45c1706fb770"
+            name="IPAddress"
+            isLeaf="false"
+            isStatic="false"
+            isReadOnly="false"
+            isDerived="false"
+            isDerivedUnion="false"
+            aggregation="None"
+            isComposite="false">
+            <referencesInternal>
+              <reference
+                Id="fdd6ba01-cdea-44f8-b6b9-80aed9e0e482"
+                handle="viewcode://./CodeSchema_Property?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DBannedIpAdresses Member%3DIPAddress"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="59df4a3c-4007-41db-86d7-572c7cd79ae2"
+                name="property"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="a20af2f7-c568-4320-b73b-cd676c8de50b">
+                    <propertyInstance
+                      Id="2d03a096-2c32-4bb7-8e03-0ffa7dd83e9f"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="e7076852-8fbb-40b4-92b9-e9ab115ecd7f">
+                    <propertyInstance
+                      Id="2f147215-296e-4462-8bea-7a062a6a1ae6"
+                      name="Get"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="5d770a8c-d3cf-432b-a2fa-2b50ff970812">
+                    <propertyInstance
+                      Id="11f048b6-cdfb-41c7-86a1-7e11af5fcd04"
+                      name="HasBody"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="40bfcf43-8a7a-43d6-a832-a9ddcd42c9e6">
+                    <propertyInstance
+                      Id="f62535c2-7371-46ef-903b-3525aff745f6"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="1633b173-1a2b-4c57-86a1-3733c63f46ac">
+                    <propertyInstance
+                      Id="e8c73e68-1328-463b-8c24-bf1b2541a8a7"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="3c52bdce-d1d1-4392-8d52-9b9f1d206200">
+                    <propertyInstance
+                      Id="a242e801-bbe3-497c-be29-63775df6890f"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="ebf0d9a4-c019-4e5c-b47b-648b92812092">
+                    <propertyInstance
+                      Id="ae5c7b6f-d801-4a06-8554-92518a3ad13b"
+                      name="Set"
+                      value="public" />
+                  </stereotypeInstanceHasPropertyInstances>
+                </propertyInstances>
+              </stereotypeInstance>
+            </appliedStereotypesInternal>
+            <type_NamedElement>
+              <primitiveTypeMoniker
+                Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+                LastKnownName="String"
+                LastKnownLocation="PBAI_ModelingProject.uml" />
+            </type_NamedElement>
+          </property>
+        </ownedAttributesInternal>
+        <ownedOperationsInternal>
+          <operation
+            Id="fd5bb473-4666-45a4-b4de-8ba23eedb170"
+            name="BannedIpAdresses"
+            isLeaf="false"
+            isStatic="false"
+            isAbstract="false"
+            concurrency="Sequential"
+            isQuery="false">
+            <referencesInternal>
+              <reference
+                Id="df2e6bbf-a9f4-4cc0-aa1c-c47aabb00844"
+                handle="viewcode://./CodeSchema_Method?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP Type%3DBannedIpAdresses Member%3D.ctor"
+                tag="ViewCode" />
+            </referencesInternal>
+            <appliedStereotypesInternal>
+              <stereotypeInstance
+                Id="74e9e861-fd97-4db5-842b-bf25a55f4170"
+                name="method"
+                profile="CSharpProfile">
+                <propertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b522b062-9f01-4378-8831-1c4a162b3298">
+                    <propertyInstance
+                      Id="a7dacf47-7321-4e1d-a314-ac1766d13688"
+                      name="ClrAttributes" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="b4a8f664-2bdd-4ae1-810d-ce11c0f63ead">
+                    <propertyInstance
+                      Id="04917a95-ff65-415b-932a-9daf8c41155f"
+                      name="IsPartial"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="7b75bcc8-9169-4220-ad20-9ab1aa3d3141">
+                    <propertyInstance
+                      Id="ebdbea22-7703-436d-91ee-5e551301c9b0"
+                      name="IsUnsafe"
+                      value="false" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="22aa7848-e671-40d2-97e5-b397347dab19">
+                    <propertyInstance
+                      Id="4c77668b-9ccd-4166-b6d5-b78cae5275a6"
+                      name="Inheritance"
+                      value="none" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="2ba3c145-599c-4ec8-9e90-c446eedb8afe">
+                    <propertyInstance
+                      Id="085299f9-6c8a-4cd5-be5e-7a90d865aac2"
+                      name="PackageVisibility"
+                      value="internal" />
+                  </stereotypeInstanceHasPropertyInstances>
+                  <stereotypeInstanceHasPropertyInstances
+                    Id="da2fe9fe-ef33-4244-866e-4d6459ff8abe">
+                    <propertyInstance
+                      Id="ce258b83-674c-44dd-98f0-f2c7203a3588"
                       name="params"
                       value="false" />
                   </stereotypeInstanceHasPropertyInstances>

@@ -58,7 +58,7 @@ namespace PBIA_MVCAPP.Models
     public class LoginModelMVC
     {
         [Required]
-        [Display(Name = "Nazwa użytkownika")]
+        [Display(Name = "E-mail")]
         public string UserName { get; set; }
 
         [Required]
@@ -73,7 +73,8 @@ namespace PBIA_MVCAPP.Models
     public class RegisterModelMVC
     {
         [Required]
-        [Display(Name = "Nazwa użytkownika")]
+        [EmailAddress]
+        [Display(Name = "E-mail (podaj prawdziwy)")]
         public string UserName { get; set; }
 
         [Required]

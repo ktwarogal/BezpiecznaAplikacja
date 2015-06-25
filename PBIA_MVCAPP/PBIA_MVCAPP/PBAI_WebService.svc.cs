@@ -9,6 +9,9 @@ using System.ServiceModel.Activation;
 using System.Text;
 using System.Web;
 using WebMatrix.WebData;
+using HtmlAgilityPack;
+using System.Net;
+using System.Web.Services;
 
 namespace PBIA_MVCAPP
 {
@@ -16,12 +19,17 @@ namespace PBIA_MVCAPP
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     [AspNetCompatibilityRequirements(
         RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    //[InitializeSimpleMembership]
+    [System.ServiceModel.ServiceBehavior()]
+
+    [WebServiceBinding]
     public class PBAI_WebService : IPBAI_WebService
     {
+        private const string PAGE_URL = "http://technologieinter.esy.es/strazmiejska.html";
         public List<string> GetSpeedCameras()
         {
             var speedCameras = new List<string>();
+
+            /*
             speedCameras.Add("53.425035, 14.550363"); //Brama Portowa
             speedCameras.Add("53.427023, 14.536748"); //Plac Kościuszki
             speedCameras.Add("53.428589, 14.512586"); //26 Kwietnia i Santocka
@@ -32,7 +40,36 @@ namespace PBIA_MVCAPP
             speedCameras.Add("53.442991, 14.520743"); //B. Lindego
             speedCameras.Add("53.434240, 14.518817"); //Witkiewicza
             speedCameras.Add("53.436473, 14.491198"); //Taczaka
-           
+            */
+
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var html = wc.DownloadString(PAGE_URL);
+                    var htmlDoc = new HtmlDocument();
+                    htmlDoc.LoadHtml(html);
+                    var ulElement = htmlDoc.DocumentNode.Descendants("ul").FirstOrDefault(x => x.Id == "suszing-list");
+                    if (ulElement == null)
+                    {
+                        SecurityLog.Instance.WriteMessage("Nie mozna znalezc elementu ul na stronie", true, this.GetType());
+                        return null;
+                    }
+
+                    var li = ulElement.Descendants("li").ToList();
+                    foreach(var listElement in li)
+                    {
+                        speedCameras.Add(listElement.InnerText.Trim());
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                SecurityLog.Instance.WriteMessage(string.Format("{0} : {1}",ex.GetType(),ex.Message),true,this.GetType());
+                return null;
+            }
+
+
             return speedCameras;
         }
 

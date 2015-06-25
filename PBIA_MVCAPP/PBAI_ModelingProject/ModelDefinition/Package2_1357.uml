@@ -21,7 +21,7 @@
         <referencesInternal>
           <reference
             Id="ac6d3afb-cb2f-4fdc-9418-447273d6b933"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2Fpackages%2FMicrosoft.AspNet.Mvc.4.0.20710.0%2Flib%2Fnet40%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DActionResult"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2Fpackages%2FMicrosoft.AspNet.Mvc.4.0.20710.0%2Flib%2Fnet40%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DActionResult"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -79,7 +79,7 @@
         <referencesInternal>
           <reference
             Id="1943b3a6-73a5-4822-b9ad-24c8ce47d3e8"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2Fpackages%2FMicrosoft.AspNet.Mvc.4.0.20710.0%2Flib%2Fnet40%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DController"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2Fpackages%2FMicrosoft.AspNet.Mvc.4.0.20710.0%2Flib%2Fnet40%2FSystem.Web.Mvc.dll Namespace%3DSystem.Web.Mvc Type%3DController"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>

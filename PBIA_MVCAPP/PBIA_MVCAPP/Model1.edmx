@@ -11,6 +11,7 @@
     <EntitySet Name="webpages_OAuthMembership" EntityType="PBAI_DbModel.Store.webpages_OAuthMembership" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_Roles" EntityType="PBAI_DbModel.Store.webpages_Roles" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="BannedIpAdresses" EntityType="PBAI_DbModel.Store.BannedIpAdresses" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="InactiveUserLinks" EntityType="PBAI_DbModel.Store.InactiveUserLinks" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="webpages_UsersInRoles" EntityType="PBAI_DbModel.Store.webpages_UsersInRoles" store:Type="Tables" Schema="dbo" />
     <AssociationSet Name="FK_webpages_UsersInRoles_webpages_Roles" Association="PBAI_DbModel.Store.FK_webpages_UsersInRoles_webpages_Roles">
       <End Role="webpages_Roles" EntitySet="webpages_Roles" />
@@ -67,6 +68,14 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IPAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
   </EntityType>
+  <EntityType Name="InactiveUserLinks">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MagicGuid" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="300" />
+  </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
       <PropertyRef Name="webpages_Roles_RoleId" />
@@ -113,6 +122,7 @@
             <End Role="UserProfile" EntitySet="UserProfile" />
           </AssociationSet>
           <EntitySet Name="BannedIpAdresses" EntityType="PBAI_DbModel.BannedIpAdresses" />
+          <EntitySet Name="InactiveUserLinks" EntityType="PBAI_DbModel.InactiveUserLink" />
         </EntityContainer>
         <EntityType Name="UserProfile">
           <Key>
@@ -165,6 +175,14 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="IPAddress" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="InactiveUserLink">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MagicGuid" Nullable="false" MaxLength="500" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="300" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -219,6 +237,15 @@
         <MappingFragment StoreEntitySet="BannedIpAdresses">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InactiveUserLinks">
+      <EntityTypeMapping TypeName="IsTypeOf(PBAI_DbModel.InactiveUserLink)">
+        <MappingFragment StoreEntitySet="InactiveUserLinks">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="MagicGuid" ColumnName="MagicGuid" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
