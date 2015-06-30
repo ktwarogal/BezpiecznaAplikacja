@@ -30,6 +30,5 @@ namespace PBIA_MVCAPP
         public DbSet<webpages_OAuthMembership> webpages_OAuthMembership { get; set; }
         public DbSet<webpages_Roles> webpages_Roles { get; set; }
         public DbSet<BannedIpAdresses> BannedIpAdresses { get; set; }
-        public DbSet<InactiveUserLink> InactiveUserLinks { get; set; }
     }
 }

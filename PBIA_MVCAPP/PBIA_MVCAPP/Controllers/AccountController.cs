@@ -21,6 +21,8 @@ namespace PBIA_MVCAPP.Controllers
     public class AccountController : Controller
     {
         private const string PAGE_URL = "http://technologieinter.esy.es/strazmiejska.html";
+        private const int MAX_UNSUCESSFULL_LOGINS = 2;
+
         //
         // GET: /Account/Login
 
@@ -39,39 +41,104 @@ namespace PBIA_MVCAPP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModelMVC model, string returnUrl)
         {
-            var isConfirmed = WebSecurity.IsConfirmed(model.UserName);
-
-            if(isConfirmed)
+            if (WebSecurity.UserExists(model.UserName))
             {
-                if (ModelState.IsValid)
+                var isConfirmed = WebSecurity.IsConfirmed(model.UserName);
+                if (isConfirmed)
                 {
-                    var isLoggedIn = WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe);
-                    if (isLoggedIn)
-                        return RedirectToLocal(returnUrl);
+                    if (ModelState.IsValid)
+                    {
+                        var usr = System.Web.Security.Membership.GetUser(model.UserName);
+                        if (usr.IsApproved)
+                        {
+                            var isLoggedIn = WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe);
+
+                            if (isLoggedIn)
+                                return RedirectToLocal(returnUrl);
+                            else
+                            {
+                                ModelState.AddModelError("", "Logowanie nie powiodło się");
+                                SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle dane logowania", model.UserName), false, GetType());
+                                if (CheckForBan(model.UserName, HttpContext.Request.UserHostAddress))
+                                {
+                                    return RedirectToAction("UserBanned");
+                                }
+                            }
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Ten użytkownik jest zbanowany. Wymagana ręczna aktywacja przez administratora");
+                            SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - użytkownik zbanowany. Wymagana ręczna aktywacja przed administratora", model.UserName), false, GetType());
+                        }
+                    }
                     else
                     {
-                        ModelState.AddModelError("", "Logowanie nie powiodło się");
-                        SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle dane logowania", model.UserName), false, GetType());
+                        ModelState.AddModelError("", "Nieprawidłowe dane logowania");
+                        SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle wpisane dane", model.UserName), false, GetType());
                     }
-
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Nieprawidłowe dane logowania");
-                    SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle wpisane dane", model.UserName), false, GetType());
+                    SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nieaktywny", model.UserName), false, GetType());
+                    ModelState.AddModelError("", "To konto nie zostało jeszcze aktywowane");
                 }
             }
             else
             {
-                SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nieaktywny", model.UserName), false, GetType());
-                ModelState.AddModelError("", "To konto nie zostało jeszcze aktywowane");
+                SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nie istnieje", model.UserName), false, GetType());
+                ModelState.AddModelError("", "To konto nie istnieje");
             }
 
             
-            // If we got this far, something failed, redisplay form
-            
             return View(model);
         }
+
+
+
+        private bool CheckForBan(string l, string ip)
+        {
+            using (var db = new PBAI())
+            {
+                var up = db.UserProfile.FirstOrDefault(x => x.UserName == l).UserId;
+                var mu = db.webpages_Membership.FirstOrDefault(x=>x.UserId == up);
+                if (mu.PasswordFailuresSinceLastSuccess > MAX_UNSUCESSFULL_LOGINS)
+                {
+                    mu.PasswordFailuresSinceLastSuccess = 0;
+                    mu.IsConfirmed = false;
+                    var token = string.Concat(Guid.NewGuid().ToString().Take(128)).Replace("=",string.Empty).Replace("-",string.Empty);
+                    mu.ConfirmationToken = token;
+                    HelperMethods.ActivateUserByAdminEmail(token, l);
+                    HelperMethods.BanIpAddress(ip);
+                    db.SaveChanges();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult UnbanUser(string token)
+        {
+            try
+            {
+                using (var db = new PBAI())
+                {
+                    var mu = db.webpages_Membership.FirstOrDefault(x => x.ConfirmationToken == token);
+                    mu.IsConfirmed = true;
+                    db.SaveChanges();
+                }
+                ViewBag.Result = "powiodło się";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Result = "nie powiodło się";
+            }
+            return View();
+        }
+
 
         [HttpGet]
         [AllowAnonymous]
@@ -81,6 +148,14 @@ namespace PBIA_MVCAPP.Controllers
                 return null;
             var provider = (SimpleMembershipProvider)System.Web.Security.Membership.Provider;
             var result = provider.ValidateUser(l, p);
+
+            var usr = provider.GetUser(l, false);
+            if (usr == null)
+            {
+                var msg = string.Format("Proba zalogowania na niestniejacego uzytkownika {0}", l);
+                SecurityLog.Instance.WriteMessage(msg, false, GetType());
+                return null;
+            }
 
             if (!result)
             {
@@ -171,6 +246,12 @@ namespace PBIA_MVCAPP.Controllers
         }
 
 
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult UserBanned()
+        {
+            return View();
+        }
 
         //
         // POST: /Account/LogOff

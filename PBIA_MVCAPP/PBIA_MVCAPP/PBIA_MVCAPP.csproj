@@ -220,9 +220,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="HelperMethods.cs" />
-    <Compile Include="InactiveUserLink.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="IPBAI_WebService.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -391,6 +388,8 @@
     <Content Include="Views\Account\Registered.cshtml" />
     <Content Include="Views\Account\UserActivated.cshtml" />
     <Content Include="Views\Account\UserActivationFailed.cshtml" />
+    <Content Include="Views\Account\UnbanUser.cshtml" />
+    <Content Include="Views\Account\UserBanned.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

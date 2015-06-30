@@ -78,7 +78,7 @@ namespace PBIA_MVCAPP.Models
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi mieć minimum {2} znaków.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} musi mieć minimum {2} znaków.", MinimumLength = 8)]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
@@ -87,12 +87,5 @@ namespace PBIA_MVCAPP.Models
         [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Hasła w obu polach nie są zgodne.")]
         public string ConfirmPassword { get; set; }
-    }
-
-    public class ExternalLoginMVC
-    {
-        public string Provider { get; set; }
-        public string ProviderDisplayName { get; set; }
-        public string ProviderUserId { get; set; }
     }
 }
