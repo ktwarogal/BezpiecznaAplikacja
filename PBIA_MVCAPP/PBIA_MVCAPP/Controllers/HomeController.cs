@@ -7,7 +7,6 @@ using System.Web.Mvc;
 
 namespace PBIA_MVCAPP.Controllers
 {
-    [SecurityCheck]
     [RequireHttps]
     public class HomeController : Controller
     {
