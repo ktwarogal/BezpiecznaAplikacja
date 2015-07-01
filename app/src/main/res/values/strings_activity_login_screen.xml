@@ -9,6 +9,7 @@
 
     <string name="error_empty_login">Login can\'t be empty</string>
     <string name="error_empty_password">Password can\'t be empty</string>
+    <string name="error_wrong_password_length">Password length is incorrect (8-50 chars)</string>
 
     <string name="error_incorrect_verification">Login or password incorrect!</string>
     <string name="error_field_required">This field is required</string>

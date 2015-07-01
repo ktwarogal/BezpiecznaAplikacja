@@ -33,7 +33,10 @@ import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -41,12 +44,35 @@ import java.util.List;
  */
 public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PBAIClientInterface {
 
-
+static boolean IsInDebugLoginMode = false;
+    private static HashMap<String, Integer> mUnsuccessfullLogins;
 
     public void onListOfScannersUpdate(String s) {
+        if(s.contains("Unable to resolve host")){
+            Toast.makeText(getBaseContext(), "Internet is probably turned off.", Toast.LENGTH_LONG).show();
+            return;
+        }
         if(s.equals("")) {
+            Boolean _FirstfailOnThisLogin = true;
+            String _Login = mLoginView.getText().toString();
+            Iterator it = mUnsuccessfullLogins.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>)it.next();
+                if(pair.getKey().equals(_Login)){
+                    pair.setValue(pair.getValue()+1);
+                    _FirstfailOnThisLogin = false;
+                    break;
+                }
+                //it.remove(); // avoids a ConcurrentModificationException
+            }
+
+            if(_FirstfailOnThisLogin){
+                mUnsuccessfullLogins.put(_Login, 1);
+            }
+
             mPasswordView.setError("Wrong credentials lol!!");
             LoginWebService = null;
+
         }
         else{
             LoginWebService = null;
@@ -65,7 +91,7 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PB
     private GetLoginService LoginWebService;
 
     public LoginScreen(){
-
+        mUnsuccessfullLogins = new HashMap<String, Integer>();
     }
 
     /**
@@ -105,8 +131,34 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PB
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-               //attemptLogin();
-                GetLoginSuccessFromServer();
+                if(IsInDebugLoginMode){
+                    attemptLogin();
+                    return;
+                }
+
+
+                Boolean _IsLoginLegalOnThisUsername = true;
+                String _Login = mLoginView.getText().toString();
+                Iterator it = mUnsuccessfullLogins.entrySet().iterator();
+                while (it.hasNext()) {
+                    Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>)it.next();
+                    if(pair.getKey().equals(_Login)){
+                        if(pair.getValue()>= 3){
+                            _IsLoginLegalOnThisUsername = false;
+                            break;
+                        }
+                    }
+                    //System.out.println(pair.getKey() + " = " + pair.getValue());
+
+                    //it.remove(); // avoids a ConcurrentModificationException
+                }
+
+                if(_IsLoginLegalOnThisUsername) {
+                    GetLoginSuccessFromServer();
+                }
+                else{
+                    Toast.makeText(getBaseContext(), "Maximum number of incorrect tries exceeded for this login", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
@@ -173,6 +225,12 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PB
             cancel = true;
         }
 
+//        if(_Password.length() < 8 || _Password.length() > 50){
+//            mPasswordView.setError(getString(R.string.error_wrong_password_length));
+//            focusView = mPasswordView;
+//            cancel = true;
+//        }
+
         // Jeżeli jest ok do tej pory, to laczymy sie z webservice i sprawdzamy, czy jest ok
         // wysylamy SHA1 z login+sól+hasło
         if(!cancel) {
@@ -191,8 +249,8 @@ public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PB
             CharSequence _Text = _Shortcut;
             int _Duration = Toast.LENGTH_SHORT;
 
-            Toast toast = Toast.makeText(_Context, "Skrót: " + _Text, _Duration);
-            toast.show();
+            //Toast toast = Toast.makeText(_Context, "Skrót: " + _Text, _Duration);
+            //toast.show();
 
             if( CheckIfLoginCorrect()){
                 Toast.makeText(getBaseContext(), "LOGIN CORRECT!", Toast.LENGTH_LONG).show();

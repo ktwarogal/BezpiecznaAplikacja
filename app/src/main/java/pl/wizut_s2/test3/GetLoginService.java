@@ -18,11 +18,12 @@ public class GetLoginService extends WebServiceConnection {
 
     public GetLoginService(PBAIClientInterface client) {
         super(client);
-
+/*
         AsyncTask<String, String, String> runner;
         runner = new HttpGetAsyncTaskRunner();
 
         runner.execute();
+        */
     }
 
     public void GetLoginResponse(String pLogin, String pPassword){

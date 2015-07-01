@@ -11,7 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class GetWebService extends WebServiceConnection {
-    private String HTTP_GET_URL = "https://projekt-pbai.pl/PBAI_WebApp/Account/LoginViaMobile?l=snups%40wp.pl&p=123456";
+    private String HTTP_GET_URL = "https://projekt-pbai.pl/PBAI_WebApp/Account/LoginViaMobile?l=test@test.com&p=testtesttest";
+
 
     public GetWebService(PBAIClientInterface client) {
         super(client);

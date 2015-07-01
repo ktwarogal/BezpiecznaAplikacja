@@ -1,6 +1,7 @@
 package pl.wizut_s2.test3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.location.Address;
 import android.location.Location;
@@ -10,6 +11,7 @@ import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
@@ -25,10 +27,12 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends FragmentActivity implements PBAIClientInterface {
-
+    MainActivity MainContext = this;
     //TODO
     // - migotanie policji
     // - poruszanie się w lewo, aż trafi w policję
@@ -44,8 +48,11 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 
     public GetWebService webServiceConnection;
 
+
     public MainActivity() {
         mIsInPoliceRadius = false;
+
+
         switch (WebServiceConnection.ServiceType.HTTP_GET) {
             case HTTP_GET:
                 webServiceConnection = new GetWebService(this);
@@ -54,7 +61,26 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
                 webServiceConnection = new GetWebService(this);
                 break;
         }
+
+        final Handler handler = new Handler();
+        Timer timer = new Timer(false);
+
+        TimerTask timerTask = new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mMap.clear();
+                        webServiceConnection = new GetWebService(MainContext);
+                        Toast.makeText(getBaseContext(), "Refreshed points list!", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        };
+        timer.scheduleAtFixedRate(timerTask, 8000,8000); // 1000 = 1 second.
     }
+
 
 
     @Override
@@ -77,6 +103,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
         mMap.moveCamera(center);
         mMap.animateCamera(zoom);
 
+        mMap.clear();
 
 //        for(Address _Location : mPolicePoints) {
 //            mMap.addCircle(new CircleOptions()
