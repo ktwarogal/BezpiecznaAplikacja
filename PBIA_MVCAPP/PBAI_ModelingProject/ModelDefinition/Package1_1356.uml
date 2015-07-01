@@ -281,5 +281,76 @@
         </appliedStereotypesInternal>
       </class>
     </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="62cbd45a-049c-44e6-8610-66728f2fed09"
+        name="Nullable&lt;AccountController‎‎.ManageMessageId‎&gt;"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ee507b53-2ec4-44d9-b20c-3c0066d3d33b"
+            name="struct"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="14e58dbf-b77b-4177-8b3d-9792f2debdad">
+                <propertyInstance
+                  Id="1d38a965-7fb9-4165-a1e4-8f753dd453c7"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fdff5ba8-b6eb-4c7e-be5f-a823bd59922a">
+                <propertyInstance
+                  Id="092db019-3310-4400-af60-3fd4f14bf46c"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="36dcd0f0-21ca-41c0-a50f-4c3d52ad1be5">
+                <propertyInstance
+                  Id="92f0599b-d66f-4168-9952-ae67183c8e3a"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="2ef4b81a-4b6d-4188-8d7d-bef4fe4db397">
+                <propertyInstance
+                  Id="fe9fe606-7fe7-4ef7-9632-ce34fccfb5a1"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+        <signatures>
+          <templateBinding
+            Id="fc594cdc-5ccc-4549-8c21-d36c06ac0646">
+            <redefinableTemplateSignatureMoniker
+              Id="ef3b649e-233c-4e7f-abf3-1c0e8791c064"
+              LastKnownLocation="Package1_1356.uml" />
+            <relationshipOwnedElementsInternal>
+              <templateBindingHasTemplateParameterSubstitution>
+                <templateParameterSubstitution
+                  Id="f1dc6a16-8180-4e9f-90bf-2e2db2715241">
+                  <actuals>
+                    <enumerationMoniker
+                      Id="2096ec9b-0103-4c09-8fbb-5ef6ac0e05a1"
+                      LastKnownName="ManageMessageId"
+                      LastKnownLocation="Package_1357.uml" />
+                  </actuals>
+                  <formal>
+                    <classifierTemplateParameterMoniker
+                      Id="be9dbada-a47c-481b-8731-98d50b641789"
+                      LastKnownLocation="Package1_1356.uml" />
+                  </formal>
+                </templateParameterSubstitution>
+              </templateBindingHasTemplateParameterSubstitution>
+            </relationshipOwnedElementsInternal>
+          </templateBinding>
+        </signatures>
+      </class>
+    </packageHasNamedElement>
   </packagedElements>
 </package>

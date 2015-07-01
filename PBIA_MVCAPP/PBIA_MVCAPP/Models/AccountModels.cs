@@ -27,15 +27,6 @@ namespace PBIA_MVCAPP.Models
         public string UserName { get; set; }
     }
 
-    public class RegisterExternalLoginModelMVC
-    {
-        [Required]
-        [Display(Name = "Nazwa użytkownika")]
-        public string UserName { get; set; }
-
-        public string ExternalLoginData { get; set; }
-    }
-
     public class LocalPasswordModelMVC
     {
         [Required]
@@ -58,7 +49,7 @@ namespace PBIA_MVCAPP.Models
     public class LoginModelMVC
     {
         [Required]
-        [Display(Name = "Nazwa użytkownika")]
+        [Display(Name = "E-mail")]
         public string UserName { get; set; }
 
         [Required]
@@ -73,25 +64,49 @@ namespace PBIA_MVCAPP.Models
     public class RegisterModelMVC
     {
         [Required]
-        [Display(Name = "Nazwa użytkownika")]
+        [EmailAddress]
+        [Display(Name = "E-mail (podaj prawdziwy)")]
         public string UserName { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "{0} musi mieć minimum {2} znaków.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} musi mieć minimum {2} znaków.", MinimumLength = 8)]
+        [RegularExpression(@"^(?=.*\d)(?=.*\d)(?=.*[!@#$%])(?=.*[a-zA-Z]).{8,100}$", ErrorMessage = "Wymagana minimum jedna cyfra i znak specjalny")]
         [DataType(DataType.Password)]
         [Display(Name = "Hasło")]
         public string Password { get; set; }
 
+        [RegularExpression(@"^(?=.*\d)(?=.*\d)(?=.*[!@#$%])(?=.*[a-zA-Z]).{8,100}$", ErrorMessage = "Wymagana minimum jedna cyfra i znak specjalny")]
         [DataType(DataType.Password)]
         [Display(Name = "Potwierdź hasło")]
         [Compare("Password", ErrorMessage = "Hasła w obu polach nie są zgodne.")]
         public string ConfirmPassword { get; set; }
     }
 
-    public class ExternalLoginMVC
+
+    public class ResetModelMVC1
     {
-        public string Provider { get; set; }
-        public string ProviderDisplayName { get; set; }
-        public string ProviderUserId { get; set; }
+        [Required]
+        [EmailAddress]
+        [Display(Name = "E-mail (podaj prawdziwy)")]
+        public string UserName { get; set; }
     }
+
+
+    public class ResetModelMVC2
+    {
+        [Required]
+        [StringLength(100, ErrorMessage = "{0} musi mieć minimum {2} znaków.", MinimumLength = 8)]
+        [DataType(DataType.Password)]
+        [Display(Name = "Hasło")]
+        public string Password { get; set; }
+
+        [Required]
+        [DataType(DataType.Password)]
+        [Display(Name = "Potwierdź hasło")]
+        [Compare("Password", ErrorMessage = "Hasła w obu polach nie są zgodne.")]
+        public string ConfirmPassword { get; set; }
+
+        public string Token{ get; set; }
+    }
+
 }

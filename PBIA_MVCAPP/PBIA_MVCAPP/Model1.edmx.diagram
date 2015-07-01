@@ -4,13 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="6512e8ecdf594c528b1eebed6e945bc6" Name="Diagram1">
+      <Diagram DiagramId="6512e8ecdf594c528b1eebed6e945bc6" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="PBAI_DbModel.UserProfile" Width="1.5" PointX="4.375" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PBAI_DbModel.webpages_Membership" Width="3" PointX="0.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="PBAI_DbModel.webpages_OAuthMembership" Width="2.875" PointX="4.375" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PBAI_DbModel.webpages_OAuthMembership" Width="2.875" PointX="5.5" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PBAI_DbModel.webpages_Roles" Width="2.625" PointX="0.75" PointY="0.875" IsExpanded="true" />
         <AssociationConnector Association="PBAI_DbModel.webpages_UsersInRoles" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="PBAI_DbModel.BannedIpAdresses" Width="1.5" PointX="4.375" PointY="4.5" />
+        <EntityTypeShape EntityType="PBAI_DbModel.BannedIpAdresses" Width="1.5" PointX="5.5" PointY="4.375" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

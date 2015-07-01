@@ -16,5 +16,6 @@ namespace PBIA_MVCAPP
     {
         public int ID { get; set; }
         public string IPAddress { get; set; }
+        public System.DateTime BannedDate { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 06/07/2015 13:58:34
+-- Date Created: 06/30/2015 23:25:21
 -- Generated from EDMX file: F:\Repozytorium\BezpieczenaApka\BezpiecznaAplikacja\PBIA_MVCAPP\PBIA_MVCAPP\Model1.edmx
 -- --------------------------------------------------
 
@@ -92,44 +92,13 @@ GO
 -- Creating table 'BannedIpAdresses'
 CREATE TABLE [dbo].[BannedIpAdresses] (
     [ID] int IDENTITY(1,1) NOT NULL,
-    [IPAddress] nvarchar(50)  NOT NULL
+    [IPAddress] nvarchar(50)  NOT NULL,
+    [BannedDate] datetime  NOT NULL
 );
 GO
 
--- Creating table 'webpages_UsersInRoles'
-CREATE TABLE [dbo].[webpages_UsersInRoles] (
-    [webpages_Roles_RoleId] int  NOT NULL,
-    [UserProfile_UserId] int  NOT NULL
-);
-GO
 
--- --------------------------------------------------
--- Creating all PRIMARY KEY constraints
--- --------------------------------------------------
 
--- Creating primary key on [UserId] in table 'UserProfile'
-ALTER TABLE [dbo].[UserProfile]
-ADD CONSTRAINT [PK_UserProfile]
-    PRIMARY KEY CLUSTERED ([UserId] ASC);
-GO
-
--- Creating primary key on [UserId] in table 'webpages_Membership'
-ALTER TABLE [dbo].[webpages_Membership]
-ADD CONSTRAINT [PK_webpages_Membership]
-    PRIMARY KEY CLUSTERED ([UserId] ASC);
-GO
-
--- Creating primary key on [Provider], [ProviderUserId] in table 'webpages_OAuthMembership'
-ALTER TABLE [dbo].[webpages_OAuthMembership]
-ADD CONSTRAINT [PK_webpages_OAuthMembership]
-    PRIMARY KEY CLUSTERED ([Provider], [ProviderUserId] ASC);
-GO
-
--- Creating primary key on [RoleId] in table 'webpages_Roles'
-ALTER TABLE [dbo].[webpages_Roles]
-ADD CONSTRAINT [PK_webpages_Roles]
-    PRIMARY KEY CLUSTERED ([RoleId] ASC);
-GO
 
 -- Creating primary key on [ID] in table 'BannedIpAdresses'
 ALTER TABLE [dbo].[BannedIpAdresses]
@@ -137,38 +106,7 @@ ADD CONSTRAINT [PK_BannedIpAdresses]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [webpages_Roles_RoleId], [UserProfile_UserId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [PK_webpages_UsersInRoles]
-    PRIMARY KEY NONCLUSTERED ([webpages_Roles_RoleId], [UserProfile_UserId] ASC);
-GO
 
--- --------------------------------------------------
--- Creating all FOREIGN KEY constraints
--- --------------------------------------------------
-
--- Creating foreign key on [webpages_Roles_RoleId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [FK_webpages_UsersInRoles_webpages_Roles]
-    FOREIGN KEY ([webpages_Roles_RoleId])
-    REFERENCES [dbo].[webpages_Roles]
-        ([RoleId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [UserProfile_UserId] in table 'webpages_UsersInRoles'
-ALTER TABLE [dbo].[webpages_UsersInRoles]
-ADD CONSTRAINT [FK_webpages_UsersInRoles_UserProfile]
-    FOREIGN KEY ([UserProfile_UserId])
-    REFERENCES [dbo].[UserProfile]
-        ([UserId])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-
--- Creating non-clustered index for FOREIGN KEY 'FK_webpages_UsersInRoles_UserProfile'
-CREATE INDEX [IX_FK_webpages_UsersInRoles_UserProfile]
-ON [dbo].[webpages_UsersInRoles]
-    ([UserProfile_UserId]);
-GO
 
 -- --------------------------------------------------
 -- Script has ended

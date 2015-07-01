@@ -66,6 +66,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="IPAddress" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="BannedDate" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="webpages_UsersInRoles">
     <Key>
@@ -165,6 +166,7 @@
           </Key>
           <Property Type="Int32" Name="ID" Nullable="false" p1:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="IPAddress" Nullable="false" MaxLength="50" />
+          <Property Type="DateTime" Name="BannedDate" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -219,6 +221,7 @@
         <MappingFragment StoreEntitySet="BannedIpAdresses">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="IPAddress" ColumnName="IPAddress" />
+          <ScalarProperty Name="BannedDate" ColumnName="BannedDate" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

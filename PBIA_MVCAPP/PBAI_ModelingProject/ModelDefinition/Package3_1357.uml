@@ -21,7 +21,7 @@
         <referencesInternal>
           <reference
             Id="3325953b-b142-44da-bf7e-8db61e675d62"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLoginModelMVC"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -137,7 +137,7 @@
         <referencesInternal>
           <reference
             Id="63b4898c-fb36-4a8e-8355-94cd160acec7"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLocalPasswordModelMVC"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DLocalPasswordModelMVC"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>
@@ -195,7 +195,7 @@
         <referencesInternal>
           <reference
             Id="ad803018-097d-4437-b9a9-caeecb9d6ae6"
-            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterModelMVC"
+            handle="viewcode://./CodeSchema_Class?Assembly%3Dfile:%2F%2F%2FF:%2FRepozytorium%2FBezpieczenaApka%2FBezpiecznaAplikacja%2FPBIA_MVCAPP%2FPBIA_MVCAPP%2Fbin%2FPBIA_MVCAPP.dll Namespace%3DPBIA_MVCAPP.Models Type%3DRegisterModelMVC"
             tag="ViewCode" />
         </referencesInternal>
         <appliedStereotypesInternal>

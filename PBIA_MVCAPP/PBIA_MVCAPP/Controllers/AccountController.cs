@@ -10,15 +10,19 @@ using Microsoft.Web.WebPages.OAuth;
 using WebMatrix.WebData;
 using PBIA_MVCAPP.Filters;
 using PBIA_MVCAPP.Models;
+using System.Net;
+using HtmlAgilityPack;
+using System.IO;
 
 namespace PBIA_MVCAPP.Controllers
 {
     [RequireHttps]
     [Authorize]
-    [SecurityCheck]
-    //[InitializeSimpleMembership]
     public class AccountController : Controller
     {
+        private const string PAGE_URL = "http://technologieinter.esy.es/strazmiejska.html";
+        private const int MAX_UNSUCCESSFULL_LOGINS = 4;
+
         //
         // GET: /Account/Login
 
@@ -37,15 +41,262 @@ namespace PBIA_MVCAPP.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModelMVC model, string returnUrl)
         {
-            if (ModelState.IsValid && WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe))
+            try
             {
-                return RedirectToLocal(returnUrl);
+                if (WebSecurity.UserExists(model.UserName))
+                {
+                    var isConfirmed = WebSecurity.IsConfirmed(model.UserName);
+                    if (isConfirmed)
+                    {
+                        if (ModelState.IsValid)
+                        {
+                            var usr = System.Web.Security.Membership.GetUser(model.UserName);
+                            if (usr.IsApproved)
+                            {
+                                var isLoggedIn = WebSecurity.Login(model.UserName, model.Password, persistCookie: model.RememberMe);
+
+                                if (isLoggedIn)
+                                    return RedirectToLocal(returnUrl);
+                                else
+                                {
+                                    ModelState.AddModelError("", "Logowanie nie powiodło się");
+                                    SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle dane logowania", model.UserName), false, GetType());
+                                    if (CheckForBan(model.UserName, HttpContext.Request.UserHostAddress))
+                                    {
+                                        return RedirectToAction("UserBanned");
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                ModelState.AddModelError("", "Ten użytkownik jest zbanowany. Wymagana ręczna aktywacja przez administratora");
+                                SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - użytkownik zbanowany. Wymagana ręczna aktywacja przed administratora", model.UserName), false, GetType());
+                            }
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Nieprawidłowe dane logowania");
+                            SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - zle wpisane dane", model.UserName), false, GetType());
+                        }
+                    }
+                    else
+                    {
+                        SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nieaktywny", model.UserName), false, GetType());
+                        ModelState.AddModelError("", "To konto nie zostało jeszcze aktywowane");
+                    }
+                }
+                else
+                {
+                    SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0} - nie istnieje", model.UserName), false, GetType());
+                    ModelState.AddModelError("", "To konto nie istnieje");
+                }
+            }
+            catch(Exception ex)
+            {
+                HelperMethods.NotifyDatabaseFailure();
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType()); 
             }
 
-            SecurityLog.Instance.WriteMessage(string.Format("Nieudane logowanie dla {0}",model.UserName),false,GetType());
-            // If we got this far, something failed, redisplay form
-            ModelState.AddModelError("", "Złe dane do logowania");
+            
             return View(model);
+        }
+
+
+
+        private bool CheckForBan(string l, string ip)
+        {
+            try
+            {
+                using (var db = new PBAI())
+                {
+                    var up = db.UserProfile.FirstOrDefault(x => x.UserName == l).UserId;
+                    var mu = db.webpages_Membership.FirstOrDefault(x => x.UserId == up);
+                    if (mu.PasswordFailuresSinceLastSuccess > MAX_UNSUCCESSFULL_LOGINS)
+                    {
+                        mu.PasswordFailuresSinceLastSuccess = 0;
+                        HelperMethods.BanIpAddress(ip);
+                        db.SaveChanges();
+                        return true;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType()); 
+            }
+            return false;
+        }
+
+
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        public ActionResult UnbanUser(string token)
+        {
+            try
+            {
+                using (var db = new PBAI())
+                {
+                    var mu = db.webpages_Membership.FirstOrDefault(x => x.ConfirmationToken == token);
+                    mu.IsConfirmed = true;
+                    db.SaveChanges();
+                }
+                ViewBag.Result = "powiodło się";
+            }
+            catch (Exception ex)
+            {
+                HelperMethods.NotifyDatabaseFailure();
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType()); 
+                ViewBag.Result = "nie powiodło się";
+            }
+            return View();
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public string LoginViaMobile(string l, string p)
+        {
+            try
+            {
+                if (l == null || p == null)
+                    return null;
+                var provider = (SimpleMembershipProvider)System.Web.Security.Membership.Provider;
+
+                var usr = provider.GetUser(l, false);
+                if (usr == null)
+                {
+                    var msg = string.Format("Proba zalogowania na niestniejacego uzytkownika {0}", l);
+                    SecurityLog.Instance.WriteMessage(msg, false, GetType());
+                    return null;
+                }
+
+                if (!WebSecurity.IsConfirmed(l))
+                {
+                    return "nieaktywny";
+                }
+
+                var result = WebSecurity.Login(l, p);
+                if (!result)
+                {
+                    var msg = string.Format("Nieudane logowanie przez serwis dla uzytkownika {0}", l);
+                    SecurityLog.Instance.WriteMessage(msg, false, GetType());
+                    if (CheckForBan(l, HttpContext.Request.UserHostAddress))
+                        return "nieaktywny";
+                    return null;
+                }
+                else
+                {
+                    var msg = string.Format("Zalogowano przez komorke {0}, wysylam liste fotoradarow", l);
+                    SecurityLog.Instance.WriteMessage(msg, true, GetType());
+                    return GetSpeedCameras();
+                }
+            }
+            catch(Exception ex)
+            {
+                HelperMethods.NotifyDatabaseFailure();
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType()); 
+                return null;
+            }
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public string GetVersion()
+        {
+            return "1.0";
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult ActivateUser(string token)
+        {
+            try
+            {
+                var isSuccess = WebSecurity.ConfirmAccount(token);
+                if (isSuccess)
+                    return RedirectToAction("UserActivated", "Account");
+                else
+                    return RedirectToAction("UserActivationFailed", "Account");
+            }
+            catch(Exception ex)
+            {
+                HelperMethods.NotifyDatabaseFailure();
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType());
+                return RedirectToAction("UserActivationFailed", "Account");
+            }
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserActivated()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult UserActivationFailed()
+        {
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult Registered()
+        {
+            return View();
+        }
+
+        private string GetSpeedCameras()
+        {
+            var speedCameras = string.Empty;
+
+            try
+            {
+                using (var wc = new WebClient())
+                {
+                    var html = wc.DownloadString(PAGE_URL);
+                    var htmlDoc = new HtmlDocument();
+                    htmlDoc.LoadHtml(html);
+                    var ulElement = htmlDoc.DocumentNode.Descendants("ul").FirstOrDefault(x => x.Id == "suszing-list");
+                    if (ulElement == null)
+                    {
+                        SecurityLog.Instance.WriteMessage("Nie mozna znalezc elementu ul na stronie", true, this.GetType());
+                        return null;
+                    }
+
+                    var li = ulElement.Descendants("li").ToList();
+                    foreach (var listElement in li)
+                    {
+                        speedCameras+=listElement.InnerText.Trim() + "|";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                HelperMethods.NotifyDatabaseFailure();
+                HelperMethods.FATAL_ERROR_OCCURRED = true;
+                SecurityLog.Instance.WriteMessage("Blad krytyczny: " + ex.GetType() + " -> " + ex.Message, false, this.GetType());
+                return null;
+            }
+
+            if (string.IsNullOrEmpty(speedCameras))
+                return null;
+            else
+            {
+                return speedCameras.Substring(0, speedCameras.Length - 1);
+            }
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult UserBanned()
+        {
+            return View();
         }
 
         //
@@ -82,10 +333,19 @@ namespace PBIA_MVCAPP.Controllers
                 // Attempt to register the user
                 try
                 {
-                    WebSecurity.CreateUserAndAccount(model.UserName, model.Password);
-                    WebSecurity.Login(model.UserName, model.Password);
-                    SecurityLog.Instance.WriteMessage(string.Format("Zarejestrowano nowego uzytkownika {0}",model.UserName),true,GetType());
-                    return RedirectToAction("Index", "Home");
+                    var token = WebSecurity.CreateUserAndAccount(model.UserName, model.Password,null,true);
+                    var result = HelperMethods.ActivateUserMail(token, model.UserName);
+                    if (result)
+                    {
+                        SecurityLog.Instance.WriteMessage(string.Format("Zarejestrowano nowego uzytkownika {0}", model.UserName), true, GetType());
+                        return RedirectToAction("Registered", "Account");
+                    }
+                    else
+                    {
+                        ((SimpleMembershipProvider)Membership.Provider).DeleteAccount(model.UserName); // deletes record from webpages_Membership table
+                        ((SimpleMembershipProvider)Membership.Provider).DeleteUser(model.UserName, true); // deletes record from UserProfile table
+                        SecurityLog.Instance.WriteMessage(string.Format("Wystąpił błąd podczas wysyłania e-mail do uzytkownika {0}", model.UserName), true, GetType());
+                    }
                 }
                 catch (MembershipCreateUserException e)
                 {
@@ -135,6 +395,7 @@ namespace PBIA_MVCAPP.Controllers
                     try
                     {
                         changePasswordSucceeded = WebSecurity.ChangePassword(User.Identity.Name, model.OldPassword, model.NewPassword);
+                        SecurityLog.Instance.WriteMessage("Zmieniono haslo dla " + User.Identity.Name, true, this.GetType());
                     }
                     catch (Exception)
                     {
@@ -182,7 +443,102 @@ namespace PBIA_MVCAPP.Controllers
         //
         // POST: /Account/ExternalLogin
 
-        
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult PassReset1()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult PassReset1(ResetModelMVC1 model)
+        {
+            if (ModelState.IsValid)
+            {
+                var usr = System.Web.Security.Membership.GetUser(model.UserName);
+                if (usr != null)
+                {
+                    var token = WebSecurity.GeneratePasswordResetToken(model.UserName);
+                    HelperMethods.PassResetSendtoken(token, model.UserName);
+                    return RedirectToAction("TokenSent");
+                }
+                else
+                {
+                    ModelState.AddModelError("", String.Format("Konto o takiej nazwie nie istnieje."));
+                }
+            }
+            return View();
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult TokenSent()
+        {
+            return View();
+        }
+
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult PassReset2(string token)
+        {
+            if (token == null)
+                return RedirectToAction("Error");
+
+            var mdl = new ResetModelMVC2();
+            mdl.Token = token;
+            return View(mdl);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult PassReset2(ResetModelMVC2 model)
+        {
+            if (ModelState.IsValid && model.Token!=null)
+            {
+                try
+                {
+                    using (var pbai = new PBAI())
+                    {
+                        var tkn = pbai.webpages_Membership.FirstOrDefault(x => ((x.PasswordVerificationToken!=null) && x.PasswordVerificationToken == model.Token));
+                        if (tkn == null)
+                            return RedirectToAction("Error");
+                    }
+
+                    WebSecurity.ResetPassword(model.Token, model.Password);
+                    SecurityLog.Instance.WriteMessage("Zmiena hasla przy uzyciu tokenu ",true,this.GetType());
+                }
+                catch
+                {
+                    SecurityLog.Instance.WriteMessage("Zmiena hasla przy uzyciu tokenu " + model.Token, false, this.GetType());
+                }
+            }
+            return RedirectToAction("NewPasswordSet");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult NewPasswordSet()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public FileResult GetMobileApp()
+        {
+            return File(@"C:\\aplikacja.apk", System.Net.Mime.MediaTypeNames.Application.Octet, "aplikacja_fotoradary.apk");
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult Error()
+        {
+            return View();
+        }
 
         #region Helpers
         private ActionResult RedirectToLocal(string returnUrl)
@@ -204,22 +560,7 @@ namespace PBIA_MVCAPP.Controllers
             RemoveLoginSuccess,
         }
 
-        internal class ExternalLoginResult : ActionResult
-        {
-            public ExternalLoginResult(string provider, string returnUrl)
-            {
-                Provider = provider;
-                ReturnUrl = returnUrl;
-            }
-
-            public string Provider { get; private set; }
-            public string ReturnUrl { get; private set; }
-
-            public override void ExecuteResult(ControllerContext context)
-            {
-                OAuthWebSecurity.RequestAuthentication(Provider, ReturnUrl);
-            }
-        }
+        
 
         private static string ErrorCodeToString(MembershipCreateStatus createStatus)
         {
