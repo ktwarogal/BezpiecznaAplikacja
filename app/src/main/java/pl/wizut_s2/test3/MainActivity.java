@@ -132,7 +132,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
         };
 
 // Register the listener with the Location Manager to receive location updates
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0f, locationListener);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener);
     }
 
     void AddPolicePointsOnMap() {
