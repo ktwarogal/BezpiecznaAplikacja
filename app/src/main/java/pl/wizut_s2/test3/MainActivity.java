@@ -71,14 +71,12 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
                 handler.post(new Runnable() {
                     @Override
                     public void run() {
-                        mMap.clear();
                         webServiceConnection = new GetWebService(MainContext);
-                        Toast.makeText(getBaseContext(), "Refreshed points list!", Toast.LENGTH_LONG).show();
                     }
                 });
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 8000,8000); // 1000 = 1 second.
+        timer.scheduleAtFixedRate(timerTask, 15000,15000); // 1000 = 1 second.
     }
 
 
@@ -119,15 +117,10 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location pLocation) {
                 // Called when a new location is found by the network location provider.
-
+                //Toast.makeText(getBaseContext(), "Got new location!", Toast.LENGTH_LONG).show();
                 mCurrentLocation = pLocation;
                 mCurrentLocation.setLongitude(mCurrentLocation.getLongitude());
-// debug only
-//                mMap.addCircle(new CircleOptions()
-//                        .center(new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude()))
-//                        .radius(10)
-//                        .strokeColor(Color.BLACK)
-//                        .fillColor(Color.WHITE));
+
                 MakeUseOfNewLocation();
                 TriggerPoliceActionIfNeeded();
 
@@ -143,6 +136,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     }
 
     void AddPolicePointsOnMap() {
+        mMap.clear();
         for(Address _Location : mPolicePoints) {
             mMap.addCircle(new CircleOptions()
                     .center(new LatLng(_Location.getLatitude(), _Location.getLongitude()))
@@ -314,12 +308,13 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     }
 
     public void onListOfScannersUpdate(String s) {
-        //Log.v("WebService", "s = " + s);
+        Toast.makeText(getBaseContext(), "Refreshed points list!", Toast.LENGTH_LONG).show();
         PreparePolicePoints(s);
         AddPolicePointsOnMap();
     }
 
     private void PreparePolicePoints(String pPoints) {
+        mPolicePoints.clear();
         String [] _Points = pPoints.split("\\|",-1);
         for(String _Point : _Points){
             String [] _Coordinates = _Point.split("\\,");
