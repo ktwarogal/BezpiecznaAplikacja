@@ -10,18 +10,22 @@ import java.io.StringWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class GetWebService extends WebServiceConnection {
-    private String HTTP_GET_URL = "https://projekt-pbai.pl/PBAI_WebApp/Account/LoginViaMobile?l=test@test.com&p=testtesttest";
+public class GetVersionService extends WebServiceConnection {
 
+    // todo
+    // update address
+    private String HTTP_GET_URL = "https://projekt-pbai.pl/PBAI_WebApp/Account/GetVersion";
 
-    public GetWebService(PBAIClientInterface client) {
+    public GetVersionService(PBAIClientInterface client) {
         super(client);
 
         AsyncTask<String, String, String> runner;
         runner = new HttpGetAsyncTaskRunner();
 
         runner.execute();
+
     }
+
 
     @Override
     public ServiceType getType() {
@@ -62,11 +66,10 @@ public class GetWebService extends WebServiceConnection {
          */
         @Override
         protected void onPostExecute(String result) {
-
             // execution of result of Long time consuming operation
             // In this example it is the return value from the web service
             //publishProgress(result);
-            onListOfScannersUpdate(result);
+            onListOfScannersUpdate("Version:"+result);
         }
     }
 }

@@ -44,7 +44,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     private double mPoliceRadius =150;
     Location mCurrentLocation = null;
     private boolean mIsInPoliceRadius = false;
-
+    long startTime;
 
     public GetWebService webServiceConnection;
 
@@ -52,7 +52,7 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     public MainActivity() {
         mIsInPoliceRadius = false;
 
-
+        startTime = System.nanoTime();
         switch (WebServiceConnection.ServiceType.HTTP_GET) {
             case HTTP_GET:
                 webServiceConnection = new GetWebService(this);
@@ -72,11 +72,12 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
                     @Override
                     public void run() {
                         webServiceConnection = new GetWebService(MainContext);
+                        startTime = System.nanoTime();
                     }
                 });
             }
         };
-        timer.scheduleAtFixedRate(timerTask, 15000,15000); // 1000 = 1 second.
+        timer.scheduleAtFixedRate(timerTask, 60000,60000); // 1000 = 1 second.
     }
 
 
@@ -112,7 +113,9 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
 //        }
         // Acquire a reference to the system Location Manager
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-
+        if (!locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)){
+            Toast.makeText(getBaseContext(), "GPS is probably turned off!", Toast.LENGTH_LONG).show();
+        }
 // Define a listener that responds to location updates
         LocationListener locationListener = new LocationListener() {
             public void onLocationChanged(Location pLocation) {
@@ -308,12 +311,27 @@ public class MainActivity extends FragmentActivity implements PBAIClientInterfac
     }
 
     public void onListOfScannersUpdate(String s) {
-        Toast.makeText(getBaseContext(), "Refreshed points list!", Toast.LENGTH_LONG).show();
-        PreparePolicePoints(s);
-        AddPolicePointsOnMap();
+        if(s.contains("Unable to resolve host")){
+            Toast.makeText(getBaseContext(), "Internet connection was lost - police points has NOT been refreshed.", Toast.LENGTH_LONG).show();
+        }
+        else {
+            long elapseTime = (long) ((System.nanoTime() - startTime) * 0.000000001); // it's in nanoseconds, so its * 10^(-9)
+
+            if (elapseTime <= 60) {
+                //Toast.makeText(getBaseContext(), "Refreshed points list!", Toast.LENGTH_LONG).show();
+                PreparePolicePoints(s);
+                AddPolicePointsOnMap();
+            } else {
+                Toast.makeText(getBaseContext(), "Server connection was killed - too long response.", Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void PreparePolicePoints(String pPoints) {
+        if(pPoints.equals("")){
+            Toast.makeText(getBaseContext(), "invalid points - Internet connection was probably lost.", Toast.LENGTH_LONG).show();
+            return;
+        }
         mPolicePoints.clear();
         String [] _Points = pPoints.split("\\|",-1);
         for(String _Point : _Points){

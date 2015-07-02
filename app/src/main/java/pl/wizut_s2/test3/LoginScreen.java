@@ -10,6 +10,7 @@ import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.AsyncTask;
 
@@ -44,39 +45,64 @@ import java.util.Map;
  */
 public class LoginScreen extends Activity implements LoaderCallbacks<Cursor>, PBAIClientInterface {
 
-static boolean IsInDebugLoginMode = false;
+    static boolean IsInDebugLoginMode = false;
+    final  Double CurrentVersion = 1.0;
+
     private static HashMap<String, Integer> mUnsuccessfullLogins;
 
     public void onListOfScannersUpdate(String s) {
+
+
         if(s.contains("Unable to resolve host")){
             Toast.makeText(getBaseContext(), "Internet is probably turned off.", Toast.LENGTH_LONG).show();
             return;
         }
-        if(s.equals("")) {
-            Boolean _FirstfailOnThisLogin = true;
-            String _Login = mLoginView.getText().toString();
-            Iterator it = mUnsuccessfullLogins.entrySet().iterator();
-            while (it.hasNext()) {
-                Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>)it.next();
-                if(pair.getKey().equals(_Login)){
-                    pair.setValue(pair.getValue()+1);
-                    _FirstfailOnThisLogin = false;
-                    break;
+
+        if(s.contains("https://"))
+        {
+            Toast.makeText(getBaseContext(), "IP is banned! Try again later.", Toast.LENGTH_LONG).show();
+            return;
+        }
+        if(s.contains("Version:")) {
+            String [] _VersionArray = s.split("\\:",-1);
+            String _Version = _VersionArray[1];
+            try{
+                Double _VersionNumber = Double.parseDouble(_Version);
+                if(_VersionNumber > CurrentVersion){
+                    Toast.makeText(getBaseContext(), "There is a new version, download it from our site!.", Toast.LENGTH_LONG).show();
                 }
-                //it.remove(); // avoids a ConcurrentModificationException
             }
-
-            if(_FirstfailOnThisLogin){
-                mUnsuccessfullLogins.put(_Login, 1);
+            catch(Exception _Ex) {
+               //gonna catch'em a;;
             }
-
-            mPasswordView.setError("Wrong credentials lol!!");
-            LoginWebService = null;
-
         }
         else{
-            LoginWebService = null;
-            attemptLogin();
+
+            if (s.equals("")) {
+                Boolean _FirstfailOnThisLogin = true;
+                String _Login = mLoginView.getText().toString();
+                Iterator it = mUnsuccessfullLogins.entrySet().iterator();
+                while (it.hasNext()) {
+                    Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>) it.next();
+                    if (pair.getKey().equals(_Login)) {
+                        pair.setValue(pair.getValue() + 1);
+                        _FirstfailOnThisLogin = false;
+                        break;
+                    }
+                    //it.remove(); // avoids a ConcurrentModificationException
+                }
+
+                if (_FirstfailOnThisLogin) {
+                    mUnsuccessfullLogins.put(_Login, 1);
+                }
+
+                mPasswordView.setError("Wrong credentials lol!!");
+                LoginWebService = null;
+
+            } else {
+                LoginWebService = null;
+                attemptLogin();
+            }
         }
     }
 
@@ -89,9 +115,11 @@ static boolean IsInDebugLoginMode = false;
     };
 
     private GetLoginService LoginWebService;
-
+    private GetVersionService VersionWebService;
     public LoginScreen(){
         mUnsuccessfullLogins = new HashMap<String, Integer>();
+
+        VersionWebService = new GetVersionService(this);
     }
 
     /**
@@ -143,7 +171,7 @@ static boolean IsInDebugLoginMode = false;
                 while (it.hasNext()) {
                     Map.Entry<String, Integer> pair = (Map.Entry<String, Integer>)it.next();
                     if(pair.getKey().equals(_Login)){
-                        if(pair.getValue()>= 3){
+                        if(pair.getValue()>= 5){
                             _IsLoginLegalOnThisUsername = false;
                             break;
                         }
@@ -225,11 +253,11 @@ static boolean IsInDebugLoginMode = false;
             cancel = true;
         }
 
-//        if(_Password.length() < 8 || _Password.length() > 50){
-//            mPasswordView.setError(getString(R.string.error_wrong_password_length));
-//            focusView = mPasswordView;
-//            cancel = true;
-//        }
+        if(_Password.length() < 8 || _Password.length() > 50){
+            mPasswordView.setError(getString(R.string.error_wrong_password_length));
+            focusView = mPasswordView;
+            cancel = true;
+        }
 
         // Jeżeli jest ok do tej pory, to laczymy sie z webservice i sprawdzamy, czy jest ok
         // wysylamy SHA1 z login+sól+hasło
